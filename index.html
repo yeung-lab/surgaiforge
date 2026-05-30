@@ -499,13 +499,24 @@
     <span class="kicker">Get Involved</span>
     <h2>Coming Soon</h2>
     <p>We&rsquo;re building resources that make it easier to discover, evaluate, and contribute to surgical AI research.</p>
-    <div id="signupArea">
-      <div class="signup">
-        <input type="email" id="emailInput" placeholder="you@institution.edu" aria-label="Email address" autocomplete="email" />
-        <button class="btn btn-primary btn-lg" id="signupBtn" type="button">Notify Me</button>
-      </div>
-      <p class="signup-note">For research updates. No spam, and you can unsubscribe at any time.</p>
+    <div data-fs-success class="signup-ok" style="display:none">
+      <p>Thank you &mdash; you&rsquo;re on the list.</p>
+      <p class="signup-note">We&rsquo;ll be in touch as resources become available.</p>
     </div>
+    <div data-fs-error style="display:none" class="signup-note" style="color:var(--cardinal)"></div>
+    <form id="signup-form">
+      <div class="signup">
+        <input type="email" id="emailInput" name="email" placeholder="you@institution.edu" aria-label="Email address" autocomplete="email" data-fs-field required />
+        <button class="btn btn-primary btn-lg" data-fs-submit-btn type="submit">Notify Me</button>
+      </div>
+      <span data-fs-error="email" class="signup-note" style="color:var(--cardinal)"></span>
+      <p class="signup-note">For research updates. No spam, and you can unsubscribe at any time.</p>
+    </form>
+    <script>
+      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+      formspree('initForm', { formElement: '#signup-form', formId: 'mjgzzjaj' });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   </div>
 </section>
 
@@ -549,26 +560,6 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  (function () {
-    var btn = document.getElementById('signupBtn');
-    var input = document.getElementById('emailInput');
-    var area = document.getElementById('signupArea');
-    function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-    function submit() {
-      var v = (input.value || '').trim();
-      if (!isEmail(v)) {
-        input.focus();
-        input.style.borderColor = '#8c1515';
-        return;
-      }
-      area.innerHTML =
-        '<p class="signup-ok">Thank you. You&rsquo;re on the list.</p>' +
-        '<p class="signup-note">We&rsquo;ll be in touch as resources become available.</p>';
-    }
-    btn.addEventListener('click', submit);
-    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
-  })();
 </script>
 </body>
 </html>
