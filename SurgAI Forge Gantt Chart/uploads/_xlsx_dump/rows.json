@@ -1,0 +1,932 @@
+[
+ [
+  "ID",
+  "Workstream",
+  "Task",
+  "Owner",
+  "Hrs",
+  "Duration",
+  "Dependencies",
+  "Critical?"
+ ],
+ [
+  "G1",
+  "Governance",
+  "UTSW model release follow-up",
+  "Alan / Chloe",
+  "2",
+  "Jun 8-Jul 11",
+  "None",
+  "Yes"
+ ],
+ [
+  "G2",
+  "Governance",
+  "Code license decision",
+  "Alan / Serena",
+  "2",
+  "Jun 8-Jun 12",
+  "None",
+  "Yes"
+ ],
+ [
+  "G3",
+  "Governance",
+  "Dataset license decision",
+  "Alan / Serena",
+  "2",
+  "Jun 8-Jun 12",
+  "None",
+  "Yes"
+ ],
+ [
+  "G4",
+  "Governance",
+  "Define board structure",
+  "Serena / Jeff",
+  "3",
+  "Jun 10-Jun 28",
+  "None",
+  "No"
+ ],
+ [
+  "G5",
+  "Governance",
+  "Identify board candidates",
+  "Serena / Jeff / Chloe",
+  "2",
+  "Jun 10-Jul 5",
+  "G4",
+  "No"
+ ],
+ [
+  "G6",
+  "Governance",
+  "Secure board commitments",
+  "Serena / Jeff",
+  "5",
+  "Jun 24-Aug 1",
+  "G5",
+  "No"
+ ],
+ [
+  "G7",
+  "Governance",
+  "Draft board charter",
+  "Alan",
+  "3",
+  "Jun 24-Jul 5",
+  "G4",
+  "No"
+ ],
+ [
+  "M1",
+  "Messaging",
+  "Surgical messaging draft",
+  "Chloe / Dean",
+  "3",
+  "Jun 8-Jun 20",
+  "None",
+  "Yes"
+ ],
+ [
+  "M2",
+  "Messaging",
+  "CS / AI messaging draft",
+  "Elaine",
+  "3",
+  "Jun 8-Jun 20",
+  "None",
+  "Yes"
+ ],
+ [
+  "M3",
+  "Messaging",
+  "Ecosystem / vision messaging",
+  "Alan",
+  "4",
+  "Jun 8-Jun 20",
+  "None",
+  "Yes"
+ ],
+ [
+  "M4",
+  "Messaging",
+  "Synthesize unified positioning",
+  "Alan",
+  "4",
+  "Jun 17-Jun 27",
+  "M1, M2, M3",
+  "Yes"
+ ],
+ [
+  "M5",
+  "Messaging",
+  "Serena / Jeff review of positioning",
+  "Serena / Jeff / Alan",
+  "3",
+  "Jun 24-Jun 30",
+  "M4",
+  "Yes"
+ ],
+ [
+  "B1",
+  "Branding",
+  "Style guide refinement",
+  "Alan",
+  "3",
+  "Jun 17-Jul 3",
+  "M4",
+  "Yes"
+ ],
+ [
+  "W1",
+  "Website",
+  "Define sitemap/pages",
+  "Alan",
+  "3",
+  "Jun 17-Jun 24",
+  "M4",
+  "Yes"
+ ],
+ [
+  "W2",
+  "Website",
+  "Website copy integration",
+  "Alan",
+  "5",
+  "Jun 24-Jul 8",
+  "M5, B1, W1",
+  "Yes"
+ ],
+ [
+  "W3",
+  "Website",
+  "Build HTML site",
+  "Alan",
+  "5",
+  "Jul 1-Jul 11",
+  "W2, B1",
+  "Yes"
+ ],
+ [
+  "W4",
+  "Website",
+  "Website QA",
+  "Alan / Taryn",
+  "2",
+  "Jul 8-Jul 15",
+  "W3",
+  "Yes"
+ ],
+ [
+  "W5",
+  "Website",
+  "Deploy website",
+  "Alan",
+  "1",
+  "Jul 15-Jul 18",
+  "W4",
+  "Yes"
+ ],
+ [
+  "C1",
+  "Comms",
+  "One-pager refresh",
+  "Alan",
+  "3",
+  "Jul 1-Jul 8",
+  "M5, B1",
+  "No"
+ ],
+ [
+  "C2",
+  "Comms",
+  "Pitch deck style refresh",
+  "Alan",
+  "4",
+  "Jul 1-Jul 11",
+  "M5, B1",
+  "No"
+ ],
+ [
+  "S1",
+  "Social",
+  "Create LinkedIn page",
+  "Taryn / Aviona",
+  "2",
+  "Jun 17-Jun 24",
+  "M4",
+  "No"
+ ],
+ [
+  "S2",
+  "Social",
+  "Populate LinkedIn page",
+  "Taryn / Aviona",
+  "3",
+  "Jun 24-Jul 5",
+  "S1, B1",
+  "No"
+ ],
+ [
+  "GH1",
+  "GitHub",
+  "Create GitHub org",
+  "Elaine",
+  "2",
+  "Jun 10-Jun 14",
+  "G2",
+  "Yes"
+ ],
+ [
+  "GH2",
+  "GitHub",
+  "Define repo architecture",
+  "Elaine",
+  "2",
+  "Jun 14-Jun 21",
+  "GH1",
+  "Yes"
+ ],
+ [
+  "GH3",
+  "GitHub",
+  "Set permissions / protections",
+  "Elaine",
+  "2",
+  "Jun 21-Jun 28",
+  "GH2",
+  "Yes"
+ ],
+ [
+  "GH4",
+  "GitHub",
+  "Create README / template structure",
+  "Elaine",
+  "3",
+  "Jun 24-Jul 5",
+  "GH2",
+  "Yes"
+ ],
+ [
+  "HF1",
+  "Hugging Face",
+  "Create HF organization",
+  "Taryn",
+  "2",
+  "Jun 10-Jun 14",
+  "None",
+  "Yes"
+ ],
+ [
+  "HF2",
+  "Hugging Face",
+  "Configure HF org structure",
+  "Taryn",
+  "3",
+  "Jun 14-Jun 21",
+  "HF1",
+  "Yes"
+ ],
+ [
+  "HF3",
+  "Hugging Face",
+  "Upload shell pages / placeholders",
+  "Taryn",
+  "4",
+  "Jun 21-Jul 5",
+  "HF2, M4",
+  "No"
+ ],
+ [
+  "MD1",
+  "Models",
+  "STEPS checkpoint identified",
+  "Elaine",
+  "1",
+  "Jun 17-Jun 21",
+  "GH2, G1",
+  "Yes"
+ ],
+ [
+  "MD2",
+  "Models",
+  "STEPS code cleanup/package",
+  "Elaine",
+  "2",
+  "Jun 21-Jul 3",
+  "MD1",
+  "Yes"
+ ],
+ [
+  "MD3",
+  "Models",
+  "STEPS validation run",
+  "Elaine",
+  "2",
+  "Jul 1-Jul 8",
+  "MD2",
+  "Yes"
+ ],
+ [
+  "MD4",
+  "Models",
+  "ERRORS checkpoint identified",
+  "Elaine",
+  "1",
+  "Jun 17-Jun 21",
+  "GH2, G1",
+  "Yes"
+ ],
+ [
+  "MD5",
+  "Models",
+  "ERRORS code cleanup/package",
+  "Elaine",
+  "2",
+  "Jun 21-Jul 3",
+  "MD4",
+  "Yes"
+ ],
+ [
+  "MD6",
+  "Models",
+  "ERRORS validation run",
+  "Elaine",
+  "2",
+  "Jul 1-Jul 8",
+  "MD5",
+  "Yes"
+ ],
+ [
+  "MD7",
+  "Models",
+  "Parkland checkpoint identified",
+  "Elaine",
+  "1",
+  "Jun 17-Jun 21",
+  "GH2, G1",
+  "Yes"
+ ],
+ [
+  "MD8",
+  "Models",
+  "Parkland code cleanup/package",
+  "Elaine",
+  "2",
+  "Jun 21-Jul 3",
+  "MD7",
+  "Yes"
+ ],
+ [
+  "MD9",
+  "Models",
+  "Parkland validation run",
+  "Elaine",
+  "2",
+  "Jul 1-Jul 8",
+  "MD8",
+  "Yes"
+ ],
+ [
+  "MD10",
+  "Models",
+  "MC1 checkpoint identified",
+  "Elaine",
+  "1",
+  "Jun 24-Jun 28",
+  "GH2, G1",
+  "Yes"
+ ],
+ [
+  "MD11",
+  "Models",
+  "MC1 code cleanup/package",
+  "Elaine",
+  "2",
+  "Jun 28-Jul 8",
+  "MD10",
+  "Yes"
+ ],
+ [
+  "MD12",
+  "Models",
+  "MC1 validation run",
+  "Elaine",
+  "2",
+  "Jul 8-Jul 15",
+  "MD11",
+  "Yes"
+ ],
+ [
+  "MD13",
+  "Models",
+  "MC2 checkpoint identified",
+  "Elaine",
+  "1",
+  "Jun 24-Jun 28",
+  "GH2, G1",
+  "Yes"
+ ],
+ [
+  "MD14",
+  "Models",
+  "MC2 code cleanup/package",
+  "Elaine",
+  "2",
+  "Jun 28-Jul 8",
+  "MD13",
+  "Yes"
+ ],
+ [
+  "MD15",
+  "Models",
+  "MC2 validation run",
+  "Elaine",
+  "1",
+  "Jul 8-Jul 15",
+  "MD14",
+  "Yes"
+ ],
+ [
+  "A1",
+  "Annotations",
+  "Inventory annotation files",
+  "Elaine",
+  "2",
+  "Jun 21-Jun 28",
+  "GH2",
+  "Yes"
+ ],
+ [
+  "A2",
+  "Annotations",
+  "Validate annotation formats",
+  "Elaine",
+  "2",
+  "Jun 28-Jul 8",
+  "A1",
+  "Yes"
+ ],
+ [
+  "A3",
+  "Annotations",
+  "Cleanup/package annotations",
+  "Elaine",
+  "2",
+  "Jul 5-Jul 15",
+  "A2",
+  "Yes"
+ ],
+ [
+  "A4",
+  "Annotations",
+  "Upload annotations",
+  "Elaine",
+  "2",
+  "Jul 15-Jul 20",
+  "A3, GH3, HF2",
+  "Yes"
+ ],
+ [
+  "D1",
+  "Docs",
+  "Draft GitHub README",
+  "Elaine",
+  "1",
+  "Jul 1-Jul 11",
+  "GH4, M5",
+  "Yes"
+ ],
+ [
+  "D2",
+  "Docs",
+  "Draft model cards",
+  "Elaine",
+  "2",
+  "Jul 8-Jul 25",
+  "MD3, MD6, MD9, MD12, MD15",
+  "Yes"
+ ],
+ [
+  "D3",
+  "Docs",
+  "Draft dataset cards",
+  "Elaine",
+  "2",
+  "Jul 15-Jul 25",
+  "A3",
+  "Yes"
+ ],
+ [
+  "D4",
+  "Docs",
+  "Access instructions",
+  "Alan / Aviona",
+  "4",
+  "Jul 8-Jul 18",
+  "V5",
+  "Yes"
+ ],
+ [
+  "D5",
+  "Docs",
+  "Final documentation QA",
+  "Taryn / Alan",
+  "5",
+  "Jul 25-Aug 5",
+  "D1, D2, D3, D4",
+  "Yes"
+ ],
+ [
+  "V1",
+  "Videos",
+  "Inventory videos",
+  "Alan / Aviona",
+  "2",
+  "Jun 17-Jun 28",
+  "None",
+  "Yes"
+ ],
+ [
+  "V2",
+  "Videos",
+  "Decide hosting platform",
+  "Alan / Aviona",
+  "2",
+  "Jun 17-Jul 1",
+  "G3",
+  "Yes"
+ ],
+ [
+  "V3",
+  "Videos",
+  "Define folder structure",
+  "Alan / Aviona",
+  "1",
+  "Jun 28-Jul 5",
+  "V1, V2",
+  "Yes"
+ ],
+ [
+  "V4",
+  "Videos",
+  "Upload videos",
+  "Alan / Aviona",
+  "4",
+  "Jul 5-Jul 18",
+  "V3",
+  "Yes"
+ ],
+ [
+  "V5",
+  "Videos",
+  "Define access workflow",
+  "Alan / Aviona",
+  "2",
+  "Jul 8-Jul 18",
+  "V2",
+  "Yes"
+ ],
+ [
+  "V6",
+  "Videos",
+  "Pressure test video access",
+  "Alan / Aviona",
+  "4",
+  "Jul 18-Jul 31",
+  "V4, V5",
+  "Yes"
+ ],
+ [
+  "L1",
+  "Leaderboard",
+  "Define benchmark datasets",
+  "Elaine",
+  "2",
+  "Jul 1-Jul 11",
+  "MD3, MD6, MD9, MD12, MD15",
+  "Yes"
+ ],
+ [
+  "L2",
+  "Leaderboard",
+  "Define evaluation metrics",
+  "Elaine",
+  "2",
+  "Jul 1-Jul 11",
+  "L1",
+  "Yes"
+ ],
+ [
+  "L3",
+  "Leaderboard",
+  "Generate baseline results",
+  "Elaine",
+  "1",
+  "Jul 11-Jul 25",
+  "L2, MD validations",
+  "Yes"
+ ],
+ [
+  "L4",
+  "Leaderboard",
+  "Build HF leaderboard",
+  "Elaine",
+  "2",
+  "Jul 18-Aug 1",
+  "L3, HF2",
+  "Yes"
+ ],
+ [
+  "L5",
+  "Leaderboard",
+  "Test submission workflow",
+  "Elaine / Taryn",
+  "2",
+  "Aug 1-Aug 8",
+  "L4",
+  "Yes"
+ ],
+ [
+  "APP1",
+  "Web App",
+  "UI/UX review of current app",
+  "Yunchai / Alan",
+  "8",
+  "Jun 10-Jun 21",
+  "None",
+  "Yes"
+ ],
+ [
+  "APP2",
+  "Web App",
+  "UI/UX redesign",
+  "Yunchai",
+  "12",
+  "Jun 17-Jul 8",
+  "APP1, M4",
+  "Yes"
+ ],
+ [
+  "APP3",
+  "Web App",
+  "Modular architecture design",
+  "Yeonjae",
+  "20",
+  "Jun 17-Jul 5",
+  "APP1",
+  "Yes"
+ ],
+ [
+  "APP4",
+  "Web App",
+  "Refactor architecture",
+  "Yeonjae",
+  "15",
+  "Jul 1-Jul 25",
+  "APP3",
+  "Yes"
+ ],
+ [
+  "APP5",
+  "Web App",
+  "Model integration layer",
+  "Yeonjae",
+  "15",
+  "Jul 11-Aug 1",
+  "APP4, MD validations",
+  "Yes"
+ ],
+ [
+  "APP6",
+  "Web App",
+  "Web app internal testing",
+  "Yunchai / Brian",
+  "4",
+  "Aug 1-Aug 8",
+  "APP5",
+  "Yes"
+ ],
+ [
+  "APP7",
+  "Web App",
+  "Web app documentation",
+  "Yunchai",
+  "3",
+  "Aug 1-Aug 8",
+  "APP5",
+  "No"
+ ],
+ [
+  "INF1",
+  "Inference",
+  "Upload workflow",
+  "Alan / Yunchai",
+  "5",
+  "Jul 1-Jul 18",
+  "APP2",
+  "Yes"
+ ],
+ [
+  "INF2",
+  "Inference",
+  "Inference workflow",
+  "Alan / Yeonjae",
+  "6",
+  "Jul 8-Jul 25",
+  "APP4",
+  "Yes"
+ ],
+ [
+  "INF3",
+  "Inference",
+  "Results visualization",
+  "Yeonjae",
+  "3",
+  "Jul 18-Aug 1",
+  "INF2",
+  "Yes"
+ ],
+ [
+  "INF4",
+  "Inference",
+  "Inference testing",
+  "Brian",
+  "4",
+  "Aug 1-Aug 8",
+  "INF1, INF2, INF3",
+  "Yes"
+ ],
+ [
+  "INF5",
+  "Inference",
+  "Inference documentation",
+  "Alan / Yunchai",
+  "3",
+  "Aug 1-Aug 8",
+  "INF1, INF2, INF3",
+  "No"
+ ],
+ [
+  "P1",
+  "Pubs",
+  "MC2 Delphi manuscript completion",
+  "Aviona / Jeff",
+  "8",
+  "Jun 17-Jul 5",
+  "None",
+  "Yes"
+ ],
+ [
+  "P2",
+  "Pubs",
+  "MC2 Delphi author review",
+  "Aviona / Jeff",
+  "5",
+  "Jul 5-Jul 25",
+  "P1",
+  "Yes"
+ ],
+ [
+  "P3",
+  "Pubs",
+  "MC2 Delphi arXiv/submission",
+  "Aviona / Jeff",
+  "3",
+  "Jul 25-Aug 8",
+  "P2",
+  "Yes"
+ ],
+ [
+  "P4",
+  "Pubs",
+  "MC2 manuscript completion",
+  "Josiah / Alfred",
+  "12",
+  "Jun 17-Jul 8",
+  "None",
+  "Yes"
+ ],
+ [
+  "P5",
+  "Pubs",
+  "MC2 author review",
+  "Josiah / Alfred",
+  "6",
+  "Jul 8-Jul 31",
+  "P4",
+  "Yes"
+ ],
+ [
+  "P6",
+  "Pubs",
+  "MC2 arXiv/submission",
+  "Josiah / Alfred",
+  "3",
+  "Aug 1-Aug 15",
+  "P5",
+  "Yes"
+ ],
+ [
+  "P7",
+  "Pubs",
+  "Tool tracking manuscript completion",
+  "Alfred / Jeff",
+  "12",
+  "Jun 17-Jul 8",
+  "None",
+  "Yes"
+ ],
+ [
+  "P8",
+  "Pubs",
+  "Tool tracking author review",
+  "Alfred / Jeff",
+  "6",
+  "Jul 8-Jul 31",
+  "P7",
+  "Yes"
+ ],
+ [
+  "P9",
+  "Pubs",
+  "Tool tracking arXiv/submission",
+  "Alfred / Jeff",
+  "3",
+  "Aug 1-Aug 15",
+  "P8",
+  "Yes"
+ ],
+ [
+  "P10",
+  "Pubs",
+  "Needs finding manuscript completion",
+  "Chloe",
+  "10",
+  "Jun 17-Jul 8",
+  "None",
+  "Yes"
+ ],
+ [
+  "P11",
+  "Pubs",
+  "Needs finding author review",
+  "Chloe",
+  "5",
+  "Jul 8-Jul 31",
+  "P10",
+  "Yes"
+ ],
+ [
+  "P12",
+  "Pubs",
+  "Needs finding arXiv/submission",
+  "Chloe",
+  "3",
+  "Aug 1-Aug 15",
+  "P11",
+  "Yes"
+ ],
+ [
+  "QA1",
+  "Release QA",
+  "End-to-end user journey test",
+  "Alan / Taryn / Aviona",
+  "4",
+  "Aug 5-Aug 10",
+  "W5, D5, V6, L5, APP6, INF4",
+  "Yes"
+ ],
+ [
+  "QA2",
+  "Release QA",
+  "Fix final blockers",
+  "Alan / Elaine / Yeonjae",
+  "4",
+  "Aug 8-Aug 13",
+  "QA1",
+  "Yes"
+ ],
+ [
+  "LA1",
+  "Launch",
+  "Launch readiness review",
+  "Alan / Serena / Jeff",
+  "3",
+  "Aug 13-Aug 14",
+  "QA2, P submissions",
+  "Yes"
+ ],
+ [
+  "LA2",
+  "Launch",
+  "Public launch",
+  "Alan / Team",
+  "2",
+  "46249",
+  "LA1",
+  "Yes"
+ ]
+]
