@@ -200,7 +200,7 @@ class Component extends DCLogic {
       placeholder('Tool tracking', 'Models', [{ kind: 'Related model', name: 'Tool Tracking', href: OR + '#model-tools' }]),
       placeholder('Additional meta-competencies work', 'Assessment', []),
       placeholder('Surgical needs finding', 'Clinical / Needs Finding', []),
-      placeholder('SOAR web application', 'Tools', [{ kind: 'Related software', name: 'SOAR', href: OR + '#soar' }]),
+      placeholder('SOAR WebApp — Coming soon', 'Tools', []),
     ];
     const cat = this.state.cat;
     const papers = cat === 'All' ? all : all.filter(p => p.cat === cat);
