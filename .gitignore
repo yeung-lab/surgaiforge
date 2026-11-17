@@ -1,0 +1,48 @@
+# macOS
+.DS_Store
+.thumbnail
+
+# Node + Vite
+node_modules
+node_modules/
+dist/
+dist-demo/
+*.local
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Logs
+*.log
+
+# Videos — too large for Git; served from GitHub Releases in production
+# and kept locally for dev. See demo-data/manifest.json for download URLs.
+*.mp4
+*.mov
+*.webm
+*.orig.mp4
+
+# Sensitive media directory (per MINT project policy — real surgical video
+# may land here during local dev; must never be committed).
+private-demo/
+
+# User-uploaded demo content (web form drop zone)
+SOAR Model Suite Demo Platform/SurgAI Forge Website Prototype/uploads/
+
+# MINT demo source — the editable copy lives here but we commit the built
+# output under mint-demo/ instead. Uncomment to track source too.
+# SOAR Model Suite Demo Platform/mint-demo-source/dist-demo/
+
+# Env + secrets
+.env
+.env.*
+!.env.example

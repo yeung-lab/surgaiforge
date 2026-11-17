@@ -1,0 +1,7 @@
+video,frame_number,step_id,step_label
+example_laparoscopic_cholecystectomy.mp4,0,2,2ExposeGallbladder
+example_laparoscopic_cholecystectomy.mp4,100,2,2ExposeGallbladder
+example_laparoscopic_cholecystectomy.mp4,200,3,3DissectHepatocysticTriangle
+example_laparoscopic_cholecystectomy.mp4,300,3,3DissectHepatocysticTriangle
+example_laparoscopic_cholecystectomy.mp4,400,4,4LigationDivision
+example_laparoscopic_cholecystectomy.mp4,500,5,5GallbladderDissection

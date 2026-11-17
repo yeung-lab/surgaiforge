@@ -1,0 +1,13 @@
+{
+  "info": {
+    "description": "Example MINT-ingestible CVS labels file. Format matches SOAR-cvs-model/data_prep/build_coco_splits.py: one entry per frame with the 3-vector ds label (consensus of 3 raters, each in {0,1}; values ∈ {0, 1/3, 2/3, 1}).",
+    "version": "1.0"
+  },
+  "images": [
+    {"id": 0, "file_name": "case001/frame_00001.jpg", "video_id": 1, "ds": [0.0, 0.0, 0.0]},
+    {"id": 1, "file_name": "case001/frame_00002.jpg", "video_id": 1, "ds": [0.0, 0.333, 0.333]},
+    {"id": 2, "file_name": "case001/frame_00003.jpg", "video_id": 1, "ds": [0.333, 0.667, 0.667]},
+    {"id": 3, "file_name": "case002/frame_00001.jpg", "video_id": 2, "ds": [0.667, 1.0, 1.0]},
+    {"id": 4, "file_name": "case002/frame_00002.jpg", "video_id": 2, "ds": [1.0, 1.0, 1.0]}
+  ]
+}

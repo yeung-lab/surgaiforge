@@ -1,0 +1,9 @@
+clip_id,annotation_type,label,duration,fps,start_time,end_time
+00625-41653,steps,5GallbladderDissection,448-512,1,00:07:28,00:08:32
+00625-41653,steps,2ExposeGallbladder,512-1088,1,00:08:32,00:18:08
+00625-41653,steps,3DissectingHepatocysticTriangle,1088-1104,1,00:18:08,00:18:24
+00625-41653,steps,2ExposeGallbladder,1104-1152,1,00:18:24,00:19:12
+00625-41653,steps,3DissectingHepatocysticTriangle,1152-2976,1,00:19:12,00:49:36
+00625-41653,steps,4Ligation&Division,2976-3164,1,00:49:36,00:52:44
+00625-41653,steps,5GallbladderDissection,3164-3799,1,00:52:44,01:03:19
+00625-41653,steps,6PackagingAndRemoval,3799-4315,1,01:03:19,01:11:55

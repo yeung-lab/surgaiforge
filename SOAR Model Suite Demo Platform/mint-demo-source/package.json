@@ -1,0 +1,24 @@
+{
+  "name": "surgai-forge-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "No-code web app for running SOAR surgical tool-tracking inference.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 5173",
+    "build:demo": "VITE_DEMO_MODE=true tsc --noEmit && VITE_DEMO_MODE=true vite build --mode demo --base=/SurgAI%20Forge%20Website%20Prototype/mint-demo/ --outDir=dist-demo && rm -rf '../SurgAI Forge Website Prototype/mint-demo' && cp -R dist-demo '../SurgAI Forge Website Prototype/mint-demo'"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.7"
+  }
+}

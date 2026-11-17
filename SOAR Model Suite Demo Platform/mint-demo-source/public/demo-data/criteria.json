@@ -1,0 +1,9 @@
+{
+  "video": "example_laparoscopic_cholecystectomy.mp4",
+  "detection_window": {"start_s": 618, "end_s": 4747},
+  "criteria": [
+    {"id": "isolation", "label": "Isolation of cystic duct & artery", "achieved": true, "first_detection_s": 2305},
+    {"id": "clearance", "label": "Clearance of hepatocystic triangle", "achieved": true, "first_detection_s": 2305},
+    {"id": "plate", "label": "Exposure of cystic plate", "achieved": true, "first_detection_s": 618}
+  ]
+}
