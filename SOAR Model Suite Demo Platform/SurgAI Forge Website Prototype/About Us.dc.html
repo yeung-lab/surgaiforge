@@ -134,6 +134,11 @@ a[aria-disabled="true"]{cursor:not-allowed}
           <sc-if value="{{ m.photo }}" hint-placeholder-val="{{ false }}">
             <img src="{{ m.photo }}" alt="{{ m.name }}" loading="lazy" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;border:1px solid #E6E8EC;background:#F3F4F7;margin-bottom:16px;transition:transform .25s ease,box-shadow .25s ease" style-hover="transform:translateY(-4px) scale(1.03);box-shadow:0 16px 36px rgba(26,39,68,0.18)">
           </sc-if>
+          <sc-if value="{{ m.logoPhoto }}" hint-placeholder-val="{{ false }}">
+            <div role="img" aria-label="Headshot placeholder for {{ m.name }}" style="aspect-ratio:1/1;border-radius:12px;border:1px solid #E6E8EC;background:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+              <img src="{{ m.logoPhoto }}" alt="{{ m.name }}" loading="lazy" style="display:block;width:38%;height:auto;object-fit:contain">
+            </div>
+          </sc-if>
           <sc-if value="{{ m.noPhoto }}" hint-placeholder-val="{{ false }}">
             <!-- TODO: Insert headshot -->
             <div role="img" aria-label="Headshot placeholder for {{ m.name }}" style="aspect-ratio:1/1;border-radius:12px;border:1px solid #E6E8EC;background:#F3F4F7;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
@@ -236,7 +241,8 @@ class Component extends DCLogic {
     const surg = [1, 1, 0, 1, 1, 1], cs = [0, 1, 1, 1, 0, 1];
     const cells = (arr, color, who) => arr.map((on, i) => ({ fill: on ? color : '#fff', ring: on ? color : '#DCE0E6', aria: who + (on ? ' participate in ' : ' not primary in ') + stageList[i] }));
     // TODO: team credentials, institutions, roles, headshots to be supplied
-    const PHOTOS = { 'Serena Yeung-Levy': 'assets/team/serena-yeung.jpg', 'Alan Brown': 'assets/team/alan-brown.jpg', 'Jeffrey Jopling': 'assets/team/jeff-jopling.jpg', 'Chloe Nobuhara': 'assets/team/chloe-nobuhara.jpg', 'Elaine Sui': 'assets/team/elaine-sui.jpg', 'Charlotte Egeland': 'assets/team/charlotte-egeland.jpg', 'Xiaohan Wang': 'assets/team/xiaohan-wang.jpg', 'Brian Sutjiadi': 'assets/team/brian-sutjiadi.jpg', 'Josiah Aklilu': 'assets/team/josiah-aklilu.jpg', 'Lisa Knowlton': 'assets/team/lisa-knowlton.jpg', 'Hung-Hsuan Yen': 'assets/team/hung-hsuan-yen.jpg', 'Aviona Conti': 'assets/team/aviona-conti.jpg', 'Yunchai Sung': 'assets/team/yunchai_sung_white_background.png', 'Yeonjae Hong': 'assets/team/yeonjae_hong_temp.png' };
+    const PHOTOS = { 'Serena Yeung-Levy': 'assets/team/serena-yeung.jpg', 'Alan Brown': 'assets/team/alan-brown.jpg', 'Jeffrey Jopling': 'assets/team/jeff-jopling.jpg', 'Chloe Nobuhara': 'assets/team/chloe-nobuhara.jpg', 'Elaine Sui': 'assets/team/elaine-sui.jpg', 'Charlotte Egeland': 'assets/team/charlotte-egeland.jpg', 'Xiaohan Wang': 'assets/team/xiaohan-wang.jpg', 'Brian Sutjiadi': 'assets/team/brian-sutjiadi.jpg', 'Josiah Aklilu': 'assets/team/josiah-aklilu.jpg', 'Lisa Knowlton': 'assets/team/lisa-knowlton.jpg', 'Hung-Hsuan Yen': 'assets/team/hung-hsuan-yen.jpg', 'Aviona Conti': 'assets/team/aviona-conti.jpg', 'Yunchai Sung': 'assets/team/yunchai_sung_white_background.png' };
+    const LOGO_PLACEHOLDERS = { 'Yeonjae Hong': 'assets/flame.png' };
     const names = [['Serena Yeung-Levy','PhD','Co-Director'],['Jeffrey Jopling','MD','Co-Director'],['Lisa Knowlton','MD','Co-Director'],['Josiah Aklilu','PhD',''],['Alan Brown','',''],['Aviona Conti','MS',''],['Charlotte Egeland','MD',''],['Yeonjae Hong','',''],['Chloe Nobuhara','MD',''],['Elaine Sui','',''],['Yunchai Sung','',''],['Brian Sutjiadi','MD',''],['Xiaohan Wang','PhD',''],['Hung-Hsuan Yen','MD','']];
     return {
       story: [
@@ -254,7 +260,7 @@ class Component extends DCLogic {
         { name: 'Computer scientists', body: 'develop models, improve methods, and benchmark performance.', color: RED },
         { name: 'SurgAI Forge', body: 'provides shared infrastructure connecting the two communities.', color: '#B5BBC7' },
       ],
-      team: names.map(([name, cred, role]) => ({ name, display: cred ? name + ', ' + cred : name, photo: PHOTOS[name], noPhoto: !PHOTOS[name], initials: name.split(/[\s-]+/).map(w => w[0]).slice(0, 2).join(''), credentials: '', institution: '', role: role || '' })),
+      team: names.map(([name, cred, role]) => ({ name, display: cred ? name + ', ' + cred : name, photo: PHOTOS[name], logoPhoto: LOGO_PLACEHOLDERS[name], noPhoto: !PHOTOS[name] && !LOGO_PLACEHOLDERS[name], initials: name.split(/[\s-]+/).map(w => w[0]).slice(0, 2).join(''), credentials: '', institution: '', role: role || '' })),
     };
   }
 }
