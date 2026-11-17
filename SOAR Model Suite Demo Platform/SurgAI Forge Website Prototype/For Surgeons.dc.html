@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>For Surgeons | SurgAI Forge</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="assets/flame.png">
+<link rel="apple-touch-icon" href="assets/flame.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:#fff;color:#1A2744;font-family:'Public Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#8C1515;text-decoration:none}
+a:hover{color:#6E1010}
+:focus-visible{outline:2px solid #8C1515;outline-offset:3px;border-radius:4px}
+a[aria-disabled="true"]{cursor:not-allowed}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (max-width:1180px){header nav[aria-label="Primary"]{gap:16px!important}header nav[aria-label="Primary"]>ul{gap:16px!important}header nav[aria-label="Primary"]>ul a{font-size:13.5px!important}header nav[aria-label="Primary"]>a:first-child span{font-size:22px!important}header nav[aria-label="Primary"]>a:first-child img{height:30px!important}}
+@media (max-width:1000px){header nav[aria-label="Primary"]{gap:12px!important;padding-left:14px!important;padding-right:14px!important}header nav[aria-label="Primary"]>ul{gap:12px!important}header nav[aria-label="Primary"]>ul a{font-size:12.5px!important}header nav[aria-label="Primary"]>a:first-child span{font-size:20px!important}header nav[aria-label="Primary"]>a:last-child{padding:7px 11px!important;font-size:13px!important}}
+/* Demo */
+.demo-layout{display:grid;grid-template-columns:1fr 380px;gap:24px;align-items:start}
+@media(max-width:960px){.demo-layout{grid-template-columns:1fr}}
+.video-wrap{position:relative;background:#10182B;border-radius:10px;overflow:hidden;aspect-ratio:854/480}
+.video-wrap video{display:block;width:100%;height:100%;object-fit:contain}
+.video-wrap canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+.analysis-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.analysis-tab{font-family:inherit;font-size:13px;font-weight:600;padding:7px 13px;border-radius:6px;border:1px solid #E6E8EC;background:#fff;color:#4A5568;cursor:pointer;white-space:nowrap;transition:background .12s,color .12s,border-color .12s}
+.analysis-tab:hover{border-color:#1A2744;color:#1A2744}
+.analysis-tab[aria-selected="true"]{background:#1A2744;color:#fff;border-color:#1A2744}
+.panel{display:none}
+.panel.active{display:block}
+.step-timeline{position:relative;height:10px;border-radius:5px;overflow:hidden;background:#E6E8EC}
+.step-seg{position:absolute;top:0;height:100%;border-radius:0;cursor:pointer;transition:opacity .1s;min-width:2px}
+.step-playhead{position:absolute;top:-3px;bottom:-3px;width:2px;background:#1A2744;border-radius:1px;pointer-events:none;transform:translateX(-50%)}
+.step-seg:hover{opacity:1!important}
+.error-timeline-wrap{position:relative;height:20px;background:#EEF0F3;border-radius:4px;overflow:hidden;margin-top:10px}
+.error-tick{position:absolute;top:0;height:100%;width:3px;border-radius:1px;cursor:pointer;opacity:0.75;transition:opacity .1s}
+.error-tick:hover{opacity:1;z-index:2}
+.event-list{list-style:none;margin:0;padding:0;display:grid;gap:6px;max-height:320px;overflow-y:auto}
+.event-item{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:10px 12px;border-radius:7px;border:1px solid #E6E8EC;background:#fff;cursor:pointer;transition:border-color .1s}
+.event-item:hover{border-color:#8C1515}
+.event-item.active{border-color:#8C1515;background:#FDF5F5}
+.prob-bar-row{display:grid;grid-template-columns:100px 1fr 48px;gap:8px;align-items:center;margin-bottom:8px}
+.prob-bar-track{height:8px;background:#EEF0F3;border-radius:4px;overflow:hidden}
+.prob-bar-fill{height:100%;border-radius:4px;transition:width .3s}
+.domain-row{display:grid;grid-template-columns:1fr 48px;gap:8px;align-items:center;margin-bottom:14px}
+.domain-bar-track{height:8px;background:#EEF0F3;border-radius:4px;overflow:hidden;margin-top:4px}
+.domain-bar-fill{height:100%;background:#1A2744;border-radius:4px}
+.cvs-criterion{padding:14px 0;border-bottom:1px solid #EEF0F3}
+.cvs-criterion:last-child{border-bottom:none}
+.badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:0.06em}
+.badge-achieved{background:#E8F5EE;color:#1A5C3A}
+.badge-not-achieved{background:#FDF2F2;color:#8C1515}
+.grade-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;border:2px solid #1A2744;background:#F7F8FA}
+.card{padding:16px 18px;border:1px solid #E6E8EC;border-radius:10px;background:#fff}
+.label-upper{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#6B7385}
+.no-data{padding:24px;border:1px dashed #DCE0E6;border-radius:8px;color:#6B7385;font-size:15px;text-align:center}
+</style>
+</helmet>
+<!-- PLACEHOLDER POLICY: destinations not yet confirmed use aria-disabled="true" + a title explaining why. Assets awaiting approval are marked with TODO comments. Do not invent links, metrics, repositories, paper titles, or model specs. -->
+
+<a href="#main" style="position:absolute;left:-9999px;top:8px;padding:10px 14px;background:#1A2744;color:#fff;z-index:100;border-radius:6px" style-focus="left:12px">Skip to content</a>
+
+<!-- NAV (shared with homepage) -->
+<header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-bottom:1px solid #E6E8EC">
+  <nav aria-label="Primary" style="max-width:1440px;margin:0 auto;padding:14px clamp(16px,2.5vw,32px);display:flex;flex-wrap:nowrap;align-items:center;gap:12px 24px">
+    <a href="SurgAI%20Forge%20Homepage.dc.html" aria-label="SurgAI Forge home" style="display:flex;align-items:center;gap:10px;flex:0 0 auto">
+      <img src="assets/flame.png" alt="" width="20" height="37" style="display:block;height:34px;width:auto">
+      <span style="font-family:'Source Serif 4',Georgia,serif;font-size:25px;font-weight:600;letter-spacing:-0.01em;color:#1A2744;white-space:nowrap">SurgAI <span style="color:#8C1515">Forge</span></span>
+    </a>
+    <ul style="list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:22px;flex:0 1 auto;margin-left:auto;min-width:0;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;order:2">
+      <li><a href="About%20Us.dc.html" style="color:#4A5568;font-size:14.5px;font-weight:500;padding:6px 0;display:block;white-space:nowrap" style-hover="color:#1A2744">About Us</a></li>
+      <li><a href="Open%20Resources.dc.html" style="color:#4A5568;font-size:14.5px;font-weight:500;padding:6px 0;display:block;white-space:nowrap" style-hover="color:#1A2744">Open Resources</a></li>
+      <li><a href="For%20Surgeons.dc.html" aria-current="page" style="color:#1A2744;font-size:14.5px;font-weight:600;padding:6px 0;display:block;white-space:nowrap;box-shadow:inset 0 -2px 0 #8C1515">For Surgeons</a></li>
+      <li><a href="For%20Computer%20Scientists.dc.html" style="color:#4A5568;font-size:14.5px;font-weight:500;padding:6px 0;display:block;white-space:nowrap" style-hover="color:#1A2744">For Computer Scientists</a></li>
+      <li><a href="Papers.dc.html" style="color:#4A5568;font-size:14.5px;font-weight:500;padding:6px 0;display:block;white-space:nowrap" style-hover="color:#1A2744">Papers</a></li>
+      <li><a href="Support.dc.html" style="color:#4A5568;font-size:14.5px;font-weight:500;padding:6px 0;display:block;white-space:nowrap" style-hover="color:#1A2744">Support</a></li>
+    </ul>
+    <a href="#access" style="order:3;flex:0 0 auto;white-space:nowrap;display:inline-flex;align-items:center;padding:9px 16px;border:1px solid #8C1515;border-radius:7px;color:#8C1515;font-size:14px;font-weight:600;background:#fff;transition:background .15s,color .15s" style-hover="background:#8C1515;color:#fff">Request Access</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- 1. HERO -->
+<section id="top" aria-labelledby="hero-title" style="border-bottom:1px solid #E6E8EC;background-color:#fff;background-image:linear-gradient(#F3F4F7 1px,transparent 1px),linear-gradient(90deg,#F3F4F7 1px,transparent 1px);background-size:72px 72px">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,4vw,48px) clamp(64px,8vw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(32px,5vw,56px) clamp(40px,6vw,80px);align-items:center">
+    <div style="grid-column:1/-1">
+      <nav aria-label="Breadcrumb" style="margin:0 0 22px;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="SurgAI%20Forge%20Homepage.dc.html" style="color:#6B7385" style-hover="color:#1A2744">Home</a><span aria-hidden="true" style="color:#B5BBC7">/</span><span style="color:#8C1515">For surgeons</span>
+      </nav>
+      <h1 id="hero-title" style="margin:0;font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(42px,5.6vw,72px);line-height:1.04;letter-spacing:-0.02em;color:#1A2744">Bring surgical AI into practical use.</h1>
+    </div>
+    <figure style="margin:0">
+      <!-- TODO: Confirm image rights / replace with approved photography -->
+      <img src="assets/surgeons-hero.jpg" alt="Surgical team operating under overhead lights" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 40%;border-radius:14px;box-shadow:0 24px 60px rgba(26,39,68,0.14);background:#1A2744">
+    </figure>
+    <div>
+      <p style="margin:0;max-width:34em;font-size:clamp(17px,1.5vw,20px);line-height:1.55;color:#3D4A63;text-wrap:pretty">Explore surgical AI models, see what they produce on real surgical video, run them on your own cases, and build basic models of your own. No machine-learning background required.</p>
+      <div style="margin-top:36px;display:flex;flex-wrap:wrap;gap:12px">
+        <a href="#demos" style="display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:8px;background:#1A2744;border:1px solid #1A2744;color:#fff;font-size:16px;font-weight:600;transition:background .15s" style-hover="background:#243458;color:#fff">See Models in Action <span aria-hidden="true">→</span></a>
+        <a href="#access" style="display:inline-flex;align-items:center;padding:15px 24px;border-radius:8px;background:#fff;border:1px solid #CBD0D9;color:#1A2744;font-size:16px;font-weight:600;transition:border-color .15s" style-hover="border-color:#1A2744;color:#1A2744">Request Access</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ON THIS PAGE -->
+<nav aria-label="On this page" style="border-bottom:1px solid #E6E8EC">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))">
+    <sc-for list="{{ path }}" as="p" hint-placeholder-count="5">
+      <a href="{{ p.href }}" style="display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:baseline;padding:22px 20px 22px 0;color:#1A2744;transition:background .15s" style-hover="background:#F7F8FA;color:#1A2744">
+        <span style="font-family:'Source Serif 4',Georgia,serif;font-size:17px;font-weight:600;color:#1A2744;font-variant-numeric:tabular-nums">{{ p.n }}</span>
+        <span><span style="display:block;font-size:16px;font-weight:600">{{ p.title }}</span><span style="display:block;margin-top:2px;font-size:14px;color:#5A6478;line-height:1.45">{{ p.body }}</span></span>
+      </a>
+    </sc-for>
+  </div>
+</nav>
+
+<!-- 2. WHAT CAN SURGICAL AI HELP WITH? -->
+<section id="help" aria-labelledby="help-title" style="padding:clamp(72px,9vw,120px) 0">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)">
+    <p style="margin:0 0 18px;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#8C1515">What can surgical AI help with?</p>
+    <h2 id="help-title" style="margin:0 0 16px;font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(34px,4.2vw,52px);line-height:1.1;letter-spacing:-0.015em;color:#1A2744">Helping surgeons get more from surgical video.</h2>
+    <p style="margin:0;font-size:18px;line-height:1.6;color:#4A5568">These models are research tools. They are designed to support surgeons' judgment, not replace it.</p>
+    <div role="table" aria-label="Problems and possibilities" style="margin-top:clamp(40px,5vw,56px);border-top:1px solid #DCE0E6">
+      <div role="row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:8px 40px;padding:14px 0;border-bottom:1px solid #DCE0E6;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#6B7385">
+        <span role="columnheader">Area</span><span role="columnheader">Problem</span><span role="columnheader">Possibility</span>
+      </div>
+      <sc-for list="{{ help }}" as="h" hint-placeholder-count="3">
+        <div role="row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:8px 40px;padding:22px 0;border-bottom:1px solid #E6E8EC;align-items:baseline">
+          <span role="cell" style="font-family:'Source Serif 4',Georgia,serif;font-size:21px;font-weight:600;color:#1A2744">{{ h.area }}</span>
+          <span role="cell" style="font-size:16px;line-height:1.55;color:#5A6478">{{ h.problem }}</span>
+          <span role="cell" style="font-size:16px;line-height:1.55;color:#1A2744">{{ h.possibility }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SEE THE MODELS IN ACTION -->
+<section id="demos" aria-labelledby="demo-title" style="padding:clamp(48px,6vw,72px) 0;background:#F7F8FA;border-top:1px solid #E6E8EC;border-bottom:1px solid #E6E8EC">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:28px">
+      <div>
+        <p style="margin:0 0 12px;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#8C1515">Model Suite</p>
+        <h2 id="demo-title" style="margin:0 0 8px;font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(28px,3.5vw,42px);line-height:1.1;letter-spacing:-0.015em;color:#1A2744">See the Models in Action</h2>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#6B7385">The current demo primarily showcases models developed for laparoscopic cholecystectomy. SurgAI Forge is designed to expand to additional procedures over time.</p>
+      </div>
+    </div>
+    <div style="margin-bottom:20px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
+      <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#6B7385">Case</span>
+      <div role="group" aria-label="Select case" id="case-selector" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+    </div>
+    <div class="demo-layout">
+      <div>
+        <div class="video-wrap" id="video-wrap">
+          <video id="demo-video" controls playsinline preload="metadata" style="display:block;width:100%;height:100%;object-fit:contain">Your browser does not support HTML5 video.</video>
+          <canvas id="tool-canvas" aria-hidden="true" style="display:none"></canvas>
+          <div id="step-overlay" style="display:none;position:absolute;right:14px;top:14px;max-width:calc(100% - 180px);background:rgba(12,15,24,0.84);color:#fff;padding:8px 12px;border-radius:7px;pointer-events:none;text-align:right">
+            <span id="step-overlay-label" style="display:block;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#AEB6C6"></span>
+            <span id="step-overlay-name" style="display:block;margin-top:2px;font-size:14px;font-weight:600"></span>
+          </div>
+          <div id="error-overlay" style="display:none;position:absolute;right:14px;top:14px;background:rgba(12,15,24,0.84);color:#fff;padding:8px 12px;border-radius:7px;border:1px solid #E9B3B3;pointer-events:none">
+            <span style="display:block;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#E9B3B3">Event detected</span>
+            <span id="error-overlay-name" style="display:block;margin-top:2px;font-size:14px;font-weight:600"></span>
+          </div>
+          <div style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.94);color:#8C1515;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:4px 8px;border-radius:4px;pointer-events:none">Precomputed · Not live</div>
+        </div>
+        <div id="step-timeline-wrap" style="display:none;margin-top:10px">
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+            <span class="label-upper">Procedure timeline</span>
+            <span id="step-timeline-time" style="font-size:12px;color:#6B7385;font-variant-numeric:tabular-nums"></span>
+          </div>
+          <div class="step-timeline" id="step-timeline" role="presentation"></div>
+          <div id="step-legend" style="margin-top:14px;display:grid;gap:5px"></div>
+        </div>
+        <div id="error-timeline-wrap" style="display:none;margin-top:10px">
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+            <span class="label-upper">Event timeline</span>
+            <div style="display:flex;gap:14px">
+              <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:#6B7385"><span style="width:9px;height:9px;border-radius:50%;background:#8C1515;display:inline-block"></span>Bleeding</span>
+              <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:#6B7385"><span style="width:9px;height:9px;border-radius:50%;background:#D97B4A;display:inline-block"></span>Thermal injury</span>
+              <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:#6B7385"><span style="width:9px;height:9px;border-radius:50%;background:#4AA87B;display:inline-block"></span>Spillage</span>
+            </div>
+          </div>
+          <div class="error-timeline-wrap" id="error-timeline" role="presentation"></div>
+        </div>
+      </div>
+      <div>
+        <div role="tablist" aria-label="Select analysis" class="analysis-tabs" id="analysis-tabs">
+          <button class="analysis-tab" role="tab" data-analysis="steps"  aria-selected="false">Steps</button>
+          <button class="analysis-tab" role="tab" data-analysis="errors" aria-selected="false">Adverse Events</button>
+          <button class="analysis-tab" role="tab" data-analysis="tools"  aria-selected="false">Tool Tracking</button>
+          <button class="analysis-tab" role="tab" data-analysis="pgs"    aria-selected="false">Disease Severity</button>
+          <button class="analysis-tab" role="tab" data-analysis="cvs"    aria-selected="false">Critical View of Safety</button>
+          <button class="analysis-tab" role="tab" data-analysis="mc2"    aria-selected="false">Meta-Competencies</button>
+        </div>
+        <div id="output-panels">
+          <div id="panel-steps" class="panel" role="tabpanel" aria-label="Steps output">
+            <p style="margin:0 0 12px;font-size:13px;color:#6B7385;line-height:1.5">Surgical phase / step recognition across a procedure.</p>
+            <div class="card" style="margin-bottom:12px">
+              <div class="label-upper" style="margin-bottom:8px">Current step</div>
+              <div id="current-step-name" style="font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:600;color:#1A2744;line-height:1.25">—</div>
+              <div id="current-step-range" style="margin-top:4px;font-size:13px;color:#6B7385;font-variant-numeric:tabular-nums"></div>
+            </div>
+            <div class="card">
+              <div class="label-upper" style="margin-bottom:12px">All steps detected</div>
+              <div id="steps-list" style="display:grid;gap:6px"></div>
+            </div>
+          </div>
+          <div id="panel-errors" class="panel" role="tabpanel" aria-label="Adverse events output">
+            <p style="margin:0 0 12px;font-size:13px;color:#6B7385;line-height:1.5">Detection of intraoperative adverse events.</p>
+            <div class="card" style="margin-bottom:12px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline">
+                <div class="label-upper">Detected events</div>
+                <div id="error-count" style="font-size:12px;color:#6B7385"></div>
+              </div>
+              <div style="margin-top:6px;font-size:13px;color:#4A5568">Click an event to jump to that moment in the video.</div>
+            </div>
+            <ul class="event-list" id="event-list" aria-label="Detected events"></ul>
+          </div>
+          <div id="panel-tools" class="panel" role="tabpanel" aria-label="Tool tracking output">
+            <p style="margin:0 0 12px;font-size:13px;color:#6B7385;line-height:1.5">Detection and tracking of surgical instruments.</p>
+            <div class="card" style="margin-bottom:12px">
+              <div class="label-upper" style="margin-bottom:8px">Instrument tracking</div>
+              <div id="tool-tracking-status" style="font-size:14px;color:#4A5568;line-height:1.5"></div>
+            </div>
+            <div id="tool-metrics-wrap" style="display:grid;gap:10px"></div>
+            <div style="margin-top:12px;padding:10px 14px;background:#FDF8F0;border:1px solid #F0E0C0;border-radius:8px;font-size:13px;color:#5C4015;line-height:1.5">Higher or lower kinematic values are not inherently better or worse. These metrics are context-dependent.</div>
+          </div>
+          <div id="panel-pgs" class="panel" role="tabpanel" aria-label="Disease severity output">
+            <p style="margin:0 0 12px;font-size:13px;color:#6B7385;line-height:1.5">Estimation of disease severity from operative video.</p>
+            <div class="card" style="margin-bottom:12px">
+              <div class="label-upper" style="margin-bottom:10px">Parkland Grading Scale — consensus grade</div>
+              <div id="pgs-grade-display" style="display:flex;align-items:center;gap:14px;flex-wrap:wrap"></div>
+            </div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="label-upper" style="margin-bottom:12px">Probability distribution</div>
+              <div id="pgs-probs"></div>
+            </div>
+            <div class="card" style="background:#F7F8FA">
+              <div class="label-upper" style="margin-bottom:10px">Grading reference</div>
+              <div style="display:grid;gap:4px;font-size:13px">
+                <div style="display:flex;gap:10px"><span style="color:#6B7385;width:20px">1</span><span>Normal</span></div>
+                <div style="display:flex;gap:10px"><span style="color:#6B7385;width:20px">2</span><span>Minor Inflammation</span></div>
+                <div style="display:flex;gap:10px"><span style="color:#6B7385;width:20px">3</span><span>Moderate Inflammation</span></div>
+                <div style="display:flex;gap:10px"><span style="color:#6B7385;width:20px">4</span><span>Severe Inflammation</span></div>
+                <div style="display:flex;gap:10px"><span style="color:#6B7385;width:20px">5</span><span>Extreme / Necrotic</span></div>
+              </div>
+            </div>
+          </div>
+          <div id="panel-cvs" class="panel" role="tabpanel" aria-label="Critical View of Safety output">
+            <p style="margin:0 0 12px;font-size:13px;color:#6B7385;line-height:1.5">Assessment of whether the critical view of safety has been achieved.</p>
+            <div class="card" style="margin-bottom:12px">
+              <div class="label-upper" style="margin-bottom:8px">Overall detection window</div>
+              <div id="cvs-range-display" style="font-size:15px;font-weight:600;color:#1A2744;font-variant-numeric:tabular-nums"></div>
+              <button id="cvs-jump-btn" style="margin-top:10px;font-family:inherit;font-size:13px;font-weight:600;padding:6px 12px;border-radius:6px;border:1px solid #1A2744;background:#fff;color:#1A2744;cursor:pointer">Jump to detection start →</button>
+            </div>
+            <div class="card">
+              <div class="label-upper" style="margin-bottom:12px">Criteria status</div>
+              <div id="cvs-criteria-list"></div>
+            </div>
+          </div>
+          <div id="panel-mc2" class="panel" role="tabpanel" aria-label="Meta-competencies output">
+            <p style="margin:0 0 12px;font-size:13px;color:#6B7385;line-height:1.5">Estimation of broad surgical skill ratings.</p>
+            <div class="card" style="margin-bottom:12px">
+              <div class="label-upper" style="margin-bottom:4px">MC2 Assessment — video-level scores</div>
+              <div style="font-size:13px;color:#4A5568;line-height:1.5;margin-top:4px">Scores shown as <em>pta_entire_case</em> (probability-weighted score for the full procedure). Higher values reflect more of the relevant behavior detected across the case.</div>
+            </div>
+            <div class="card">
+              <div id="mc2-domains"></div>
+            </div>
+            <div style="margin-top:12px;padding:10px 14px;background:#F7F8FA;border:1px solid #E6E8EC;border-radius:8px;font-size:13px;color:#4A5568;line-height:1.5">Scores are derived from precomputed model-based analysis of the full surgical case.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4-5. SOAR + MINT -->
+<section aria-label="SurgAI Forge software" style="padding:clamp(48px,6vw,72px) 0 clamp(36px,4vw,56px)">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:24px">
+      <article id="soar" aria-labelledby="soar-title" style="display:flex;flex-direction:column;padding:clamp(28px,3.5vw,44px);border:1px solid #DCE0E6;border-radius:14px;background:#fff">
+        <p style="margin:0 0 18px;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#8C1515">Use existing models</p>
+        <div style="margin-bottom:14px">
+          <img src="assets/SOAR_logo_white.png" alt="SOAR" style="display:block;height:clamp(72px,8vw,96px);width:auto;mix-blend-mode:multiply">
+        </div>
+        <h2 id="soar-title" style="margin:0 0 18px;font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-style:italic;font-size:clamp(18px,1.6vw,22px);line-height:1.3;letter-spacing:-0.005em;color:#4A5568">Surgical Objective Analysis and Review</h2>
+        <p style="margin:0 0 28px;font-size:15.5px;line-height:1.6;color:#5A6478;text-wrap:pretty;flex:1">SOAR helps surgeons get more value from their surgical videos by using AI to organize cases, surface important moments, and make review faster and more structured.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="Open%20Resources.dc.html#soar" style="display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:8px;background:#1A2744;border:1px solid #1A2744;color:#fff;font-size:15px;font-weight:600;transition:background .15s" style-hover="background:#243458;color:#fff">Explore SOAR <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article id="mint" aria-labelledby="mint-title" style="display:flex;flex-direction:column;padding:clamp(28px,3.5vw,44px);border:1px solid #DCE0E6;border-radius:14px;background:#fff">
+        <p style="margin:0 0 18px;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#8C1515">Adapt and build</p>
+        <div style="margin-bottom:14px">
+          <img src="assets/MINT_Logo.png" alt="MINT" style="display:block;height:clamp(72px,8vw,96px);width:auto;mix-blend-mode:multiply">
+        </div>
+        <h2 id="mint-title" style="margin:0 0 18px;font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-style:italic;font-size:clamp(18px,1.6vw,22px);line-height:1.3;letter-spacing:-0.005em;color:#4A5568">Model Inference and No-Code Training</h2>
+        <p style="margin:0 0 28px;font-size:15.5px;line-height:1.6;color:#5A6478;text-wrap:pretty;flex:1">Run, adapt, or train models without writing code. MINT is a no-code desktop tool that runs locally on your computer.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="Open%20Resources.dc.html#mint" style="display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:8px;background:#1A2744;border:1px solid #1A2744;color:#fff;font-size:15px;font-weight:600;transition:background .15s" style-hover="background:#243458;color:#fff">Explore MINT <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 7. ACCESS -->
+<section id="access" aria-labelledby="access-title" style="padding:clamp(36px,4vw,56px) 0 clamp(72px,9vw,120px)">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:40px clamp(40px,6vw,80px);align-items:start">
+    <div>
+      <p style="margin:0 0 18px;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#8C1515">Access</p>
+      <h2 id="access-title" style="margin:0 0 20px;font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(34px,4.2vw,52px);line-height:1.1;letter-spacing:-0.015em;color:#1A2744">How to get access</h2>
+      <p style="margin:0 0 32px;font-size:18px;line-height:1.6;color:#3D4A63;text-wrap:pretty">SurgAI Forge uses a request-based access process. A single request gives you access to the SurgAI Forge resources that apply to your work.</p>
+      <a href="https://forms.gle/ZodL3Gbr647xhC8F6" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:8px;background:#1A2744;color:#fff;font-size:16px;font-weight:600;transition:background .15s" style-hover="background:#243458;color:#fff">Request Access <span aria-hidden="true">→</span></a>
+    </div>
+    <div style="border:1px solid #DCE0E6;border-radius:12px;background:#fff;padding:clamp(24px,3vw,36px)">
+      <p style="margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#6B7385">One request covers, as applicable</p>
+      <ul style="list-style:none;margin:0;padding:0">
+        <li style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid #EEF0F3;font-size:16px;color:#1A2744"><strong style="font-weight:600">SOAR</strong><span style="color:#5A6478;text-align:right">Review videos and model outputs</span></li>
+        <li style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid #EEF0F3;font-size:16px;color:#1A2744"><strong style="font-weight:600">MINT</strong><span style="color:#5A6478;text-align:right">Run and train basic models</span></li>
+        <li style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid #EEF0F3;font-size:16px;color:#1A2744"><strong style="font-weight:600">Models</strong><span style="color:#5A6478;text-align:right">The SurgAI Forge Model Zoo</span></li>
+        <li style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;font-size:16px;color:#1A2744"><strong style="font-weight:600">Data &amp; annotations</strong><span style="color:#5A6478;text-align:right">SurgVision+500 and labels</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<!-- FOOTER (shared with homepage) -->
+<footer style="border-top:1px solid #E6E8EC;background:#fff">
+  <div style="max-width:1240px;margin:0 auto;padding:56px clamp(20px,4vw,48px) 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:40px">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="assets/flame.png" alt="" style="height:30px;width:auto;display:block">
+        <span style="font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:600;color:#1A2744">SurgAI <span style="color:#8C1515">Forge</span></span>
+      </div>
+      <p style="margin:16px 0 0;font-size:15px;line-height:1.6;color:#5A6478;max-width:22em">A global, open program for surgical AI.</p>
+    </div>
+    <nav aria-label="Footer" style="grid-column:span 2;min-width:0">
+      <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px 24px">
+        <li><a href="About%20Us.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">About Us</a></li>
+        <li><a href="Open%20Resources.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Open Resources</a></li>
+        <li><a href="For%20Surgeons.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Surgeons</a></li>
+        <li><a href="For%20Computer%20Scientists.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Computer Scientists</a></li>
+        <li><a href="Papers.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Papers</a></li>
+        <li><a href="Support.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Support</a></li>
+        <li><a href="mailto:surgaiforge@gmail.com" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Contact</a></li>
+        <li><a href="SurgAI%20Forge%20Homepage.dc.html#updates" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Join the mailing list →</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:20px clamp(20px,4vw,48px) 32px;border-top:1px solid #EEF0F3;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px;color:#6B7385">
+    <span>© SurgAI Forge</span>
+    <span style="display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center">
+      <a href="Privacy.dc.html" style="color:#6B7385" style-hover="color:#8C1515">Privacy Policy</a>
+      <a href="Terms.dc.html" style="color:#6B7385" style-hover="color:#8C1515">Terms &amp; Conditions</a>
+      <a href="mailto:surgaiforge@gmail.com" style="color:#6B7385" style-hover="color:#8C1515">surgaiforge@gmail.com</a>
+    </span>
+  </div>
+</footer>
+
+</x-dc>
+<script>
+'use strict';
+(function waitForDemo(){
+const root   = document.getElementById('dc-root');
+const video  = root && root.querySelector('#demo-video');
+const canvas = root && root.querySelector('#tool-canvas');
+if(!root||!video||!canvas){setTimeout(waitForDemo,50);return;}
+video.controls = true;
+video.setAttribute('controls','');
+video.playsInline = true;
+video.preload = 'metadata';
+const ERROR_COLORS = { bleeding:'#8C1515', thermal_injury:'#D97B4A', spillage:'#4AA87B' };
+const STEP_COLORS  = { 2:'#4A90D9', 3:'#7B5EA7', 4:'#D97B4A', 5:'#4AA87B', 6:'#D9C44A' };
+const ANALYSES     = ['steps','errors','tools','pgs','cvs','mc2'];
+const state        = { manifest:null, caseId:null, analysis:'steps', data:{}, toolRAF:null };
+const ctx          = canvas.getContext('2d');
+const caseSelector = document.getElementById('case-selector');
+const analysisTabs = document.getElementById('analysis-tabs');
+function fmtTime(s){const h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=Math.floor(s%60);if(h>0)return h+':'+String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0');return m+':'+String(sec).padStart(2,'0');}
+function clamp(v,lo,hi){return Math.max(lo,Math.min(hi,v));}
+async function fetchJSON(url){const r=await fetch(url);if(!r.ok)throw new Error('fetch '+url+': '+r.status);return r.json();}
+function getCaseInfo(caseId){return state.manifest.cases.find(c=>c.id===caseId);}
+function getOrInitCase(caseId){if(!state.data[caseId])state.data[caseId]={};return state.data[caseId];}
+async function loadAnalysis(caseId,analysis){const store=getOrInitCase(caseId);if(store[analysis])return store[analysis];const info=getCaseInfo(caseId);const url=info.outputs[analysis];if(!url)return null;store[analysis]=await fetchJSON(url);return store[analysis];}
+function loadVideoForCase(caseId){const info=getCaseInfo(caseId);video.src=info.video;video.load();}
+function showPanel(analysis){ANALYSES.forEach(a=>{const el=document.getElementById('panel-'+a);if(el)el.classList.toggle('active',a===analysis);});document.getElementById('step-timeline-wrap').style.display=analysis==='steps'?'':'none';document.getElementById('error-timeline-wrap').style.display=analysis==='errors'?'':'none';canvas.style.display=analysis==='tools'?'block':'none';document.getElementById('step-overlay').style.display=analysis==='steps'?'':'none';document.getElementById('error-overlay').style.display=analysis==='errors'?'':'none';}
+function setTabActive(analysis){document.querySelectorAll('.analysis-tab').forEach(btn=>{const active=btn.dataset.analysis===analysis;btn.setAttribute('aria-selected',active?'true':'false');});}
+function renderSteps(data,caseDuration){if(!data||!data.segments||data.segments.length===0){document.getElementById('steps-list').innerHTML='<div class="no-data">No step data available for this case.</div>';return;}const segs=data.segments;const dur=caseDuration||Math.max(...segs.map(s=>s.end));const timeline=document.getElementById('step-timeline');timeline.innerHTML=segs.map(seg=>{const left=(seg.start/dur*100).toFixed(3);const width=((seg.end-seg.start)/dur*100).toFixed(3);const color=STEP_COLORS[seg.stepId]||'#A0A7B6';return '<div class="step-seg" style="left:'+left+'%;width:'+width+'%;background:'+color+';opacity:0.6" title="Step '+seg.stepId+': '+seg.label+'\n'+fmtTime(seg.start)+' – '+fmtTime(seg.end)+'" data-start="'+seg.start+'"></div>';}).join('')+'<div class="step-playhead" id="step-playhead" style="left:0%"></div>';timeline.querySelectorAll('.step-seg').forEach(el=>{el.addEventListener('click',()=>{video.currentTime=parseFloat(el.dataset.start);});});timeline.addEventListener('click',e=>{if(e.target.classList.contains('step-seg'))return;const rect=timeline.getBoundingClientRect();video.currentTime=(e.clientX-rect.left)/rect.width*dur;});const seen=new Set();const unique=segs.filter(s=>{const k=s.stepId;if(seen.has(k))return false;seen.add(k);return true;});document.getElementById('steps-list').innerHTML=unique.map(seg=>{const color=STEP_COLORS[seg.stepId]||'#A0A7B6';return '<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #EEF0F3"><span style="flex:0 0 10px;height:10px;border-radius:2px;background:'+color+'"></span><span style="font-size:13px;font-weight:700;color:#6B7385;min-width:52px">Step '+seg.stepId+'</span><span style="font-size:14px;color:#1A2744">'+seg.label+'</span></div>';}).join('');}
+function syncSteps(data,t,caseDuration){if(!data||!data.segments)return;const segs=data.segments;const dur=caseDuration||Math.max(...segs.map(s=>s.end));const cur=segs.find(s=>t>=s.start&&t<s.end);const timeline=document.getElementById('step-timeline');timeline.querySelectorAll('.step-seg').forEach((el,i)=>{const s=segs[i];const active=s&&t>=s.start&&t<s.end;el.style.opacity=active?'1':'0.45';});const playhead=document.getElementById('step-playhead');if(playhead)playhead.style.left=(t/dur*100).toFixed(3)+'%';const overlayLabel=document.getElementById('step-overlay-label');const overlayName=document.getElementById('step-overlay-name');if(cur){overlayLabel.textContent='Step '+cur.stepId;overlayName.textContent=cur.label;}else{overlayLabel.textContent='No step detected';overlayName.textContent='';}const nameEl=document.getElementById('current-step-name');const rangeEl=document.getElementById('current-step-range');if(cur){nameEl.textContent='Step '+cur.stepId+' — '+cur.label;rangeEl.textContent=fmtTime(cur.start)+' – '+fmtTime(cur.end);}else{nameEl.textContent='No step detected at current time';rangeEl.textContent='';}document.getElementById('step-timeline-time').textContent=fmtTime(t)+' / '+fmtTime(dur);}
+function renderErrors(data,caseDuration){if(!data||!data.events||data.events.length===0){document.getElementById('event-list').innerHTML='<li class="no-data">No adverse events detected for this case.</li>';return;}const events=data.events;document.getElementById('error-count').textContent=events.length+' events';const timeline=document.getElementById('error-timeline');const dur=caseDuration||Math.max(...events.map(e=>e.end));timeline.innerHTML=events.map((ev,i)=>{const leftPct=(ev.start/dur*100).toFixed(2);const color=ERROR_COLORS[ev.labelRaw]||'#6B7385';return '<div class="error-tick" style="left:'+leftPct+'%;background:'+color+'" title="'+ev.label+' ('+fmtTime(ev.start)+'–'+fmtTime(ev.end)+')" data-idx="'+i+'"></div>';}).join('');timeline.querySelectorAll('.error-tick').forEach(el=>{el.addEventListener('click',()=>{video.currentTime=events[parseInt(el.dataset.idx)].start;});});const ul=document.getElementById('event-list');ul.innerHTML=events.map((ev,i)=>{const color=ERROR_COLORS[ev.labelRaw]||'#6B7385';const score=(ev.score*100).toFixed(0);return '<li class="event-item" data-idx="'+i+'" data-start="'+ev.start+'"><span style="font-size:14px;font-weight:600;color:#1A2744;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:'+color+';flex:0 0 auto"></span>'+ev.label+'</span><span style="font-size:12px;font-weight:700;color:#8C1515;align-self:center">Jump →</span><span style="font-size:12px;color:#6B7385;font-variant-numeric:tabular-nums">'+fmtTime(ev.start)+' – '+fmtTime(ev.end)+'</span><span style="font-size:11px;color:#A0A7B6">Confidence: '+score+'%</span></li>';}).join('');ul.querySelectorAll('.event-item').forEach(el=>{el.addEventListener('click',()=>{video.currentTime=parseFloat(el.dataset.start);});});}
+function syncErrors(data,t){if(!data||!data.events)return;const active=data.events.find(ev=>t>=ev.start&&t<=ev.end);const overlay=document.getElementById('error-overlay');if(active){overlay.style.display='';document.getElementById('error-overlay-name').textContent=active.label;}else{overlay.style.display='none';}document.querySelectorAll('#event-list .event-item').forEach((el,i)=>{const ev=data.events[i];el.classList.toggle('active',ev&&t>=ev.start&&t<=ev.end);});document.querySelectorAll('#error-timeline .error-tick').forEach((el,i)=>{const ev=data.events[i];el.style.opacity=(ev&&t>=ev.start&&t<=ev.end)?'1':'0.65';});}
+let toolData=null;
+function renderToolsPanel(data){toolData=data;if(!data){document.getElementById('tool-tracking-status').textContent='Tool tracking data not available for this case.';document.getElementById('tool-metrics-wrap').innerHTML='';return;}const firstSec=(data.firstFrame/data.fps).toFixed(0);const lastSec=(data.lastFrame/data.fps).toFixed(0);document.getElementById('tool-tracking-status').innerHTML='Tracking available from <strong>'+fmtTime(parseInt(firstSec))+'</strong> to <strong>'+fmtTime(parseInt(lastSec))+'</strong>. Navigate to that window to see tool overlays.';const metricsWrap=document.getElementById('tool-metrics-wrap');metricsWrap.innerHTML=(data.videoLevelMetrics||[]).filter(m=>m.toolId).map(m=>'<div class="card"><div class="label-upper" style="margin-bottom:8px">Tool '+m.toolId+' — case average</div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px"><div><div style="font-size:12px;color:#6B7385;margin-bottom:2px">Avg velocity</div><div style="font-size:18px;font-weight:700;font-variant-numeric:tabular-nums">'+m.avgVelocity.toFixed(1)+'</div><div style="font-size:11px;color:#A0A7B6">px/s</div></div><div><div style="font-size:12px;color:#6B7385;margin-bottom:2px">Avg acceleration</div><div style="font-size:18px;font-weight:700;font-variant-numeric:tabular-nums">'+m.avgAcceleration.toFixed(1)+'</div><div style="font-size:11px;color:#A0A7B6">px/s²</div></div><div><div style="font-size:12px;color:#6B7385;margin-bottom:2px">Dist from center</div><div style="font-size:18px;font-weight:700;font-variant-numeric:tabular-nums">'+m.distFromCenter.toFixed(1)+'</div><div style="font-size:11px;color:#A0A7B6">px (avg)</div></div></div></div>').join('');}
+const TOOL_COLORS={'1':'#ffffff','2':'#E9B3B3'};const TRAIL_LENGTH=10;const trailHistory={'1':[],'2':[]};
+function drawToolOverlay(t){if(!toolData||!toolData.frames){ctx.clearRect(0,0,canvas.width,canvas.height);return;}const rect=canvas.getBoundingClientRect();if(canvas.width!==rect.width||canvas.height!==rect.height){canvas.width=rect.width;canvas.height=rect.height;}if(canvas.width===0||canvas.height===0)return;const fps=toolData.fps||10;const sample=toolData.sampleEvery||10;const srcW=toolData.sourceWidth||854;const srcH=toolData.sourceHeight||480;const scaleX=canvas.width/srcW;const scaleY=canvas.height/srcH;const frameNum=Math.round(t*fps/sample)*sample;const frameKey=String(frameNum);ctx.clearRect(0,0,canvas.width,canvas.height);const frameData=toolData.frames[frameKey];if(!frameData)return;['1','2'].forEach(tid=>{const toolFrame=frameData[tid];if(!toolFrame)return;const cx=toolFrame.x*scaleX;const cy=toolFrame.y*scaleY;const color=TOOL_COLORS[tid]||'#fff';const trail=trailHistory[tid];trail.push({x:cx,y:cy,frame:frameNum});while(trail.length>TRAIL_LENGTH)trail.shift();if(trail.length>1){ctx.beginPath();ctx.moveTo(trail[0].x,trail[0].y);for(let i=1;i<trail.length;i++)ctx.lineTo(trail[i].x,trail[i].y);ctx.strokeStyle=color;ctx.globalAlpha=0.45;ctx.lineWidth=1.5;ctx.setLineDash([3,3]);ctx.stroke();ctx.setLineDash([]);ctx.globalAlpha=1;}ctx.beginPath();ctx.arc(cx,cy,6,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();ctx.strokeStyle='rgba(0,0,0,0.5)';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle=color;ctx.font='bold 11px "Public Sans",system-ui,sans-serif';ctx.fillText('Tool '+tid,cx+9,cy-5);});}
+function startToolRAF(){if(state.toolRAF)cancelAnimationFrame(state.toolRAF);trailHistory['1']=[];trailHistory['2']=[];function loop(){if(state.analysis==='tools'){drawToolOverlay(video.currentTime);state.toolRAF=requestAnimationFrame(loop);}}state.toolRAF=requestAnimationFrame(loop);}
+function stopToolRAF(){if(state.toolRAF){cancelAnimationFrame(state.toolRAF);state.toolRAF=null;}ctx.clearRect(0,0,canvas.width,canvas.height);}
+function renderPGS(data){if(!data){document.getElementById('pgs-grade-display').innerHTML='<div class="no-data">Severity data not available.</div>';return;}const gradeColors={1:'#4AA87B',2:'#D9C44A',3:'#D97B4A',4:'#8C1515',5:'#5C0F0F'};const c=gradeColors[data.consensusGrade]||'#6B7385';document.getElementById('pgs-grade-display').innerHTML='<div style="font-size:48px;font-weight:700;font-family:\'Source Serif 4\',Georgia,serif;color:'+c+';line-height:1">'+data.consensusGrade+'</div><div><div style="font-size:18px;font-weight:600;color:#1A2744">'+data.label+'</div><div style="font-size:13px;color:#6B7385;margin-top:2px">Consensus grade · '+data.numFrames+' frames evaluated</div></div>';const GRADE_LABELS={'1':'Grade 1','2':'Grade 2','3':'Grade 3','4':'Grade 4','5':'Grade 5'};document.getElementById('pgs-probs').innerHTML=Object.entries(data.probabilities).map(([g,p])=>{const pct=(p*100).toFixed(1);const isConsensus=parseInt(g)===data.consensusGrade;const barColor=isConsensus?(gradeColors[parseInt(g)]||'#1A2744'):'#C5CEDA';return '<div class="prob-bar-row"><span style="font-size:13px;color:'+(isConsensus?'#1A2744':'#6B7385')+';font-weight:'+(isConsensus?700:400)+'">'+GRADE_LABELS[g]+'</span><div class="prob-bar-track"><div class="prob-bar-fill" style="width:'+pct+'%;background:'+barColor+'"></div></div><span style="font-size:13px;font-weight:'+(isConsensus?700:400)+';color:'+(isConsensus?'#1A2744':'#6B7385')+';text-align:right;font-variant-numeric:tabular-nums">'+pct+'%</span></div>';}).join('');}
+function renderCVS(data){if(!data){document.getElementById('cvs-criteria-list').innerHTML='<div class="no-data">CVS data not available.</div>';return;}document.getElementById('cvs-range-display').textContent=data.startLabel+' – '+data.endLabel+' ('+fmtTime(data.start)+' – '+fmtTime(data.end)+')';document.getElementById('cvs-jump-btn').onclick=()=>{video.currentTime=data.start;};document.getElementById('cvs-criteria-list').innerHTML=(data.criteria||[]).map(c=>{const badge=c.achieved?'<span class="badge badge-achieved">Achieved</span>':'<span class="badge badge-not-achieved">Not Achieved</span>';const firstSeg=c.segments&&c.segments.length>0?c.segments[0]:null;const jumpBtn=firstSeg?'<button class="cvs-seg-jump" data-time="'+firstSeg.start+'" style="font-family:inherit;font-size:12px;font-weight:600;padding:5px 10px;border-radius:5px;border:1px solid #E6E8EC;background:#fff;cursor:pointer;color:#1A2744">First detection: '+fmtTime(firstSeg.start)+' →</button>':'';const segCount=c.segments?c.segments.length:0;const segNote=segCount>1?'<div style="font-size:12px;color:#6B7385;margin-top:4px">'+segCount+' individual detections in this case</div>':'';return '<div class="cvs-criterion"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap"><div><div style="font-size:14px;font-weight:600;color:#1A2744;margin-bottom:5px">'+c.label+'</div>'+segNote+'</div>'+badge+'</div>'+(jumpBtn?'<div style="margin-top:8px">'+jumpBtn+'</div>':'')+'</div>';}).join('');document.querySelectorAll('.cvs-seg-jump').forEach(btn=>{btn.addEventListener('click',()=>{video.currentTime=parseFloat(btn.dataset.time);});});}
+function renderMC2(data){if(!data||!data.domains||data.domains.length===0){document.getElementById('mc2-domains').innerHTML='<div class="no-data">Meta-competency data not available for this case.</div>';return;}document.getElementById('mc2-domains').innerHTML=data.domains.map(d=>{const pct=(d.score*100).toFixed(1);return '<div class="domain-row"><div><div style="font-size:14px;font-weight:600;color:#1A2744">'+d.label+'</div><div class="domain-bar-track"><div class="domain-bar-fill" style="width:'+pct+'%"></div></div></div><div style="font-size:18px;font-weight:700;font-variant-numeric:tabular-nums;color:#1A2744;text-align:right">'+pct+'%</div></div>';}).join('');}
+async function selectAnalysis(analysis,preserveTime){const savedTime=preserveTime?video.currentTime:0;state.analysis=analysis;if(analysis!=='tools')stopToolRAF();setTabActive(analysis);showPanel(analysis);const data=await loadAnalysis(state.caseId,analysis).catch(()=>null);const caseInfo=getCaseInfo(state.caseId);const dur=caseInfo?caseInfo.durationSeconds:undefined;if(analysis==='steps'){renderSteps(data,dur);syncSteps(data,savedTime,dur);}if(analysis==='errors'){renderErrors(data,dur);syncErrors(data,savedTime);}if(analysis==='tools'){renderToolsPanel(data);startToolRAF();}if(analysis==='pgs')renderPGS(data);if(analysis==='cvs')renderCVS(data,dur);if(analysis==='mc2')renderMC2(data);if(preserveTime)video.currentTime=savedTime;}
+async function selectCase(caseId){state.caseId=caseId;toolData=null;trailHistory['1']=[];trailHistory['2']=[];document.querySelectorAll('#case-selector button').forEach(btn=>{const active=btn.dataset.caseId===caseId;btn.style.background=active?'#1A2744':'#fff';btn.style.color=active?'#fff':'#1A2744';btn.style.borderColor=active?'#1A2744':'#E6E8EC';});loadVideoForCase(caseId);await selectAnalysis(state.analysis,false);}
+video.addEventListener('timeupdate',()=>{const t=video.currentTime;const caseInfo=state.caseId?getCaseInfo(state.caseId):null;const dur=caseInfo?caseInfo.durationSeconds:undefined;if(state.analysis==='steps'){const data=state.data[state.caseId]&&state.data[state.caseId].steps;if(data)syncSteps(data,t,dur);}if(state.analysis==='errors'){const data=state.data[state.caseId]&&state.data[state.caseId].errors;if(data)syncErrors(data,t);}});
+const resizeObs=new ResizeObserver(()=>{const rect=canvas.getBoundingClientRect();canvas.width=rect.width;canvas.height=rect.height;trailHistory['1']=[];trailHistory['2']=[];});resizeObs.observe(canvas);
+document.querySelectorAll('.analysis-tab').forEach(btn=>{btn.addEventListener('click',()=>selectAnalysis(btn.dataset.analysis,true));});
+async function init(){let manifest;try{manifest=await fetchJSON('demo-data/manifest.json');}catch(e){const demoEl=document.getElementById('demos');if(demoEl)demoEl.innerHTML='<div style="max-width:680px;margin:60px auto;padding:32px;border:1px solid #E6E8EC;border-radius:12px;background:#fff;text-align:center"><p style="font-size:16px;font-weight:600;color:#8C1515;margin:0 0 12px">Could not load demo data</p><p style="font-size:14px;color:#4A5568;margin:0 0 16px">The demo requires an HTTP server. Run from the project root:</p><pre style="font-size:13px;background:#F7F8FA;padding:12px;border-radius:6px;border:1px solid #E6E8EC;text-align:left;overflow-x:auto">python3 serve.py</pre></div>';return;}state.manifest=manifest;manifest.cases.forEach(c=>{const btn=document.createElement('button');btn.type='button';btn.dataset.caseId=c.id;btn.textContent=c.label;btn.style.cssText='font-family:inherit;font-size:14px;font-weight:600;padding:8px 18px;border-radius:7px;border:1px solid #E6E8EC;background:#fff;color:#1A2744;cursor:pointer;transition:background .12s,color .12s,border-color .12s';btn.addEventListener('click',()=>selectCase(c.id));caseSelector.appendChild(btn);});setTabActive(state.analysis);await selectCase(manifest.cases[0].id);}
+init();
+})();
+</script>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      path: [
+        { n: '01', href: '#help', title: 'What can help', body: 'Problems AI is designed to address' },
+        { n: '02', href: '#demos', title: 'See models in action', body: 'Interactive examples on surgical video' },
+        { n: '03', href: '#soar', title: 'Use models with SOAR', body: 'Use existing models on your surgical videos' },
+        { n: '04', href: '#mint', title: 'Adapt with MINT', body: 'Run, adapt, or train models without code' },
+        { n: '05', href: '#access', title: 'Request access', body: 'One request for the resource suite' },
+      ],
+      help: [
+        { area: 'Finding key moments', problem: 'Reviewing hours of surgical video to find specific moments is slow and imprecise.', possibility: 'AI can help you navigate straight to the procedural steps and events that matter.' },
+        { area: 'Performance feedback', problem: 'Expert skill assessment is valuable but difficult to scale consistently across cases.', possibility: 'AI may support more consistent feedback on instrument use, technique, and broad competency domains.' },
+        { area: 'Clinical grading', problem: 'Severity and safety assessments from video can vary between observers.', possibility: 'These models are designed to estimate disease severity and critical view criteria from surgical video.' },
+      ],
+    };
+  }
+}
+</script>
+<script>
+(function(){
+  function scrollToHash(){
+    var hash = window.location.hash;
+    if(!hash) return;
+    var el = document.querySelector(hash);
+    if(el) el.scrollIntoView({behavior:'auto',block:'start'});
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', function(){ setTimeout(scrollToHash, 80); });
+  } else {
+    setTimeout(scrollToHash, 80);
+  }
+})();
+</script>
+</body>
+</html>

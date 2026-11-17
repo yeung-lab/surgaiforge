@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Papers | SurgAI Forge</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="assets/flame.png">
+<link rel="apple-touch-icon" href="assets/flame.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:#fff;color:#1A2744;font-family:'Public Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#8C1515;text-decoration:none}
+a:hover{color:#6E1010}
+:focus-visible{outline:2px solid #8C1515;outline-offset:3px;border-radius:4px}
+a[aria-disabled="true"]{cursor:not-allowed}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (max-width:1180px){header nav[aria-label="Primary"]{gap:16px!important}header nav[aria-label="Primary"]>ul{gap:16px!important}header nav[aria-label="Primary"]>ul a{font-size:13.5px!important}header nav[aria-label="Primary"]>a:first-child span{font-size:22px!important}header nav[aria-label="Primary"]>a:first-child img{height:30px!important}}
+@media (max-width:1000px){header nav[aria-label="Primary"]{gap:12px!important;padding-left:14px!important;padding-right:14px!important}header nav[aria-label="Primary"]>ul{gap:12px!important}header nav[aria-label="Primary"]>ul a{font-size:12.5px!important}header nav[aria-label="Primary"]>a:first-child span{font-size:20px!important}header nav[aria-label="Primary"]>a:last-child{padding:7px 11px!important;font-size:13px!important}}
+</style>
+</helmet>
+<!-- PLACEHOLDER POLICY: publication metadata will be supplied later. Do not invent titles, authors, venues, years, statuses, or links. Unavailable links are muted and aria-disabled. -->
+
+<a href="#main" style="position:absolute;left:-9999px;top:8px;padding:10px 14px;background:#1A2744;color:#fff;z-index:100;border-radius:6px" style-focus="left:12px">Skip to content</a>
+
+<!-- NAV (shared) -->
+<header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-bottom:1px solid #E6E8EC">
+  <nav aria-label="Primary" style="max-width:1440px;margin:0 auto;padding:14px clamp(16px,2.5vw,32px);display:flex;flex-wrap:nowrap;align-items:center;gap:12px 24px">
+    <a href="SurgAI%20Forge%20Homepage.dc.html" aria-label="SurgAI Forge home" style="display:flex;align-items:center;gap:10px;flex:0 0 auto">
+      <img src="assets/flame.png" alt="" width="20" height="37" style="display:block;height:34px;width:auto">
+      <span style="font-family:'Source Serif 4',Georgia,serif;font-size:25px;font-weight:600;letter-spacing:-0.01em;color:#1A2744;white-space:nowrap">SurgAI <span style="color:#8C1515">Forge</span></span>
+    </a>
+    <ul style="list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:22px;flex:0 1 auto;margin-left:auto;min-width:0;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;order:2">
+      <li><a href="About%20Us.dc.html" style="color:#4A5568;font-size:14.5px;font-weight:500;padding:6px 0;display:block;white-space:nowrap" style-hover="color:#1A2744">About Us</a></li>
+      <li><a href="Open%20Resources.dc.html" style="color:#4A5568;font-size:14.5px;font-weight:500;padding:6px 0;display:block;white-space:nowrap" style-hover="color:#1A2744">Open Resources</a></li>
+      <li><a href="For%20Surgeons.dc.html" style="color:#4A5568;font-size:14.5px;font-weight:500;padding:6px 0;display:block;white-space:nowrap" style-hover="color:#1A2744">For Surgeons</a></li>
+      <li><a href="For%20Computer%20Scientists.dc.html" style="color:#4A5568;font-size:14.5px;font-weight:500;padding:6px 0;display:block;white-space:nowrap" style-hover="color:#1A2744">For Computer Scientists</a></li>
+      <li><a href="Papers.dc.html" aria-current="page" style="color:#1A2744;font-size:14.5px;font-weight:600;padding:6px 0;display:block;white-space:nowrap;box-shadow:inset 0 -2px 0 #8C1515">Papers</a></li>
+      <li><a href="Support.dc.html" style="color:#4A5568;font-size:14.5px;font-weight:500;padding:6px 0;display:block;white-space:nowrap" style-hover="color:#1A2744">Support</a></li>
+    </ul>
+    <a href="Open%20Resources.dc.html#access" style="order:3;flex:0 0 auto;white-space:nowrap;display:inline-flex;align-items:center;padding:9px 16px;border:1px solid #8C1515;border-radius:7px;color:#8C1515;font-size:14px;font-weight:600;background:#fff;transition:background .15s,color .15s" style-hover="background:#8C1515;color:#fff">Request Access</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- 1. HERO -->
+<section aria-labelledby="hero-title" style="border-bottom:1px solid #E6E8EC">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(48px,6vw,80px) clamp(20px,4vw,48px) clamp(36px,4vw,52px)">
+    <nav aria-label="Breadcrumb" style="margin:0 0 22px;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;display:flex;gap:10px;flex-wrap:wrap">
+      <a href="SurgAI%20Forge%20Homepage.dc.html" style="color:#6B7385" style-hover="color:#1A2744">Home</a><span aria-hidden="true" style="color:#B5BBC7">/</span><span style="color:#8C1515">Papers</span>
+    </nav>
+    <h1 id="hero-title" style="margin:0 0 18px;font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(40px,5vw,64px);line-height:1.04;letter-spacing:-0.02em;color:#1A2744">Research from the SurgAI Forge ecosystem.</h1>
+    <p style="margin:0;font-size:clamp(17px,1.5vw,20px);line-height:1.55;color:#3D4A63;text-wrap:pretty">A collection of publications and preprints supporting the models, datasets, annotations, and tools released through SurgAI Forge.</p>
+  </div>
+</section>
+
+<!-- 2-4. PUBLICATION LIST + FILTERS -->
+<section aria-labelledby="list-title" style="padding:clamp(40px,5vw,64px) 0 clamp(72px,9vw,120px)">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:16px 32px;padding-bottom:18px;border-bottom:2px solid #1A2744">
+      <h2 id="list-title" style="margin:0;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#6B7385">Publications <span style="color:#1A2744;font-variant-numeric:tabular-nums">({{ count }})</span></h2>
+      <div role="group" aria-label="Filter by topic" style="display:flex;flex-wrap:wrap;gap:4px 22px">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="6">
+          <button type="button" aria-pressed="{{ f.pressed }}" onClick="{{ f.select }}" style="font-family:inherit;cursor:pointer;background:none;border:0;padding:6px 0;font-size:15px;font-weight:600;color:{{ f.color }};box-shadow:inset 0 -2px 0 {{ f.line }}" style-hover="color:#1A2744">{{ f.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <ol style="list-style:none;margin:0;padding:0">
+      <sc-for list="{{ papers }}" as="p" hint-placeholder-count="8">
+        <li style="display:flex;flex-wrap:wrap;gap:14px 40px;padding:28px 0;border-bottom:1px solid #E6E8EC">
+          <div style="flex:1 1 480px;min-width:0">
+            <p style="margin:0 0 10px;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase"><span style="color:#8C1515">{{ p.topic }}</span><span style="color:{{ p.statusColor }}">{{ p.status }}</span></p>
+            <h3 style="margin:0 0 8px;font-family:'Source Serif 4',Georgia,serif;font-size:clamp(21px,2vw,25px);font-weight:600;line-height:1.3;color:{{ p.titleColor }};text-wrap:pretty">{{ p.title }}</h3>
+            <p style="margin:0 0 6px;font-size:15px;color:#3D4A63">{{ p.authors }}</p>
+            <p style="margin:0;font-size:14px;line-height:1.5;color:#6B7385">{{ p.meta }}</p>
+            <sc-if value="{{ p.hasSummary }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:12px 0 0;font-size:15px;line-height:1.6;color:#4A5568;max-width:52em;text-wrap:pretty">{{ p.summary }}</p>
+            </sc-if>
+            <sc-if value="{{ p.hasFull }}" hint-placeholder-val="{{ false }}">
+              <details style="margin-top:10px;font-size:13px;line-height:1.6;color:#5A6478">
+                <summary style="cursor:pointer;font-weight:600;color:#4A5568">All authors</summary>
+                <p style="margin:6px 0 0;max-width:60em">{{ p.fullAuthors }}</p>
+              </details>
+            </sc-if>
+            <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:#6B7385">
+              <sc-for list="{{ p.related }}" as="r" hint-placeholder-count="1">
+                <span><span style="color:#8A93A6">{{ r.kind }}:</span> <a href="{{ r.href }}" style="color:#4A5568;border-bottom:1px solid #DCE0E6" style-hover="color:#1A2744;border-color:#1A2744">{{ r.name }}</a></span>
+              </sc-for>
+            </div>
+          </div>
+          <div style="flex:0 0 auto;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:flex-start;padding-top:22px;font-size:14px;font-weight:600">
+            <sc-for list="{{ p.links }}" as="l" hint-placeholder-count="4">
+              <a href="{{ l.href }}" target="{{ l.target }}" rel="noopener" aria-disabled="{{ l.disabled }}" title="{{ l.title }}" style="color:{{ l.color }};border-bottom:1px solid {{ l.line }};padding-bottom:1px">{{ l.label }}</a>
+            </sc-for>
+          </div>
+        </li>
+      </sc-for>
+    </ol>
+    <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+      <p style="margin:0;padding:28px 0;border-bottom:1px solid #E6E8EC;font-size:16px;color:#5A6478">No publications in this category yet.</p>
+    </sc-if>
+    <p style="margin:24px 0 0;font-size:13px;line-height:1.5;color:#6B7385">Publications arising from the SurgAI Forge and <a href="https://wellcomeleap.org/programs/save/" target="_blank" rel="noopener" style="color:#4A5568;border-bottom:1px solid #CBD0D9" style-hover="color:#8C1515;border-color:#8C1515">Wellcome Leap SAVE</a> ecosystem. Full citations will be added as metadata is confirmed.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER (shared) -->
+<footer style="border-top:1px solid #E6E8EC;background:#fff">
+  <div style="max-width:1240px;margin:0 auto;padding:56px clamp(20px,4vw,48px) 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:40px">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="assets/flame.png" alt="" style="height:30px;width:auto;display:block">
+        <span style="font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:600;color:#1A2744">SurgAI <span style="color:#8C1515">Forge</span></span>
+      </div>
+      <p style="margin:16px 0 0;font-size:15px;line-height:1.6;color:#5A6478;max-width:22em">A global, open program for surgical AI.</p>
+    </div>
+    <nav aria-label="Footer" style="grid-column:span 2;min-width:0">
+      <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px 24px">
+        <li><a href="About%20Us.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">About Us</a></li>
+        <li><a href="Open%20Resources.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Open Resources</a></li>
+        <li><a href="For%20Surgeons.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Surgeons</a></li>
+        <li><a href="For%20Computer%20Scientists.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Computer Scientists</a></li>
+        <li><a href="Papers.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Papers</a></li>
+        <li><a href="Support.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Support</a></li>
+        <li><a href="mailto:surgaiforge@gmail.com" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Contact</a></li>
+        <li><a href="SurgAI%20Forge%20Homepage.dc.html#updates" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Join the mailing list →</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:20px clamp(20px,4vw,48px) 32px;border-top:1px solid #EEF0F3;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px;color:#6B7385">
+    <span>© SurgAI Forge</span>
+    <span style="display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center">
+      <a href="Privacy.dc.html" style="color:#6B7385" style-hover="color:#8C1515">Privacy Policy</a>
+      <a href="Terms.dc.html" style="color:#6B7385" style-hover="color:#8C1515">Terms &amp; Conditions</a>
+      <a href="mailto:surgaiforge@gmail.com" style="color:#6B7385" style-hover="color:#8C1515">surgaiforge@gmail.com</a>
+    </span>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cat: 'All' };
+  renderVals() {
+    const OR = 'Open%20Resources.dc.html';
+    const link = (label, href) => href
+      ? { label, href, target: '_blank', disabled: 'false', title: label + ' (opens in new tab)', color: '#8C1515', line: '#E9C9C9' }
+      : { label, href: undefined, target: undefined, disabled: 'true', title: 'Link not yet available', color: '#B5BBC7', line: 'transparent' };
+    const placeholder = (topic, cat, related) => ({ topic, cat, related, title: 'Paper title coming soon', titleColor: '#1A2744', authors: 'Author One, Author Two, et al.', meta: 'Status TBD · Year TBD', status: '', statusColor: '#6B7385', hasSummary: false, hasFull: false,
+      links: [link('Paper'), link('Code'), link('Project'), link('Dataset')] });
+    const all = [
+      { topic: 'Assessment / Meta-competencies', cat: 'Assessment', status: 'Published', statusColor: '#1A2744', titleColor: '#1A2744',
+        title: 'Consensus operational definitions of surgical meta-competencies for computer vision-driven performance assessment: a multi-institutional Delphi study',
+        authors: 'Alex H. Lee, Aviona Conti, et al.',
+        fullAuthors: 'Alex H. Lee; Aviona Conti; Matthew Leipzig; Chloe K. Nobuhara; Reid Dale; Joshua A. Villarreal; Charlotte Egeland; Alan Brown; Alfred Song; Brian Sutjiadi; Josiah Aklilu; Liane S. Feldman; Lisa M. Knowlton; Adewale O. Adisa; Dhruv N. Ghosh; Ewen M. Harrison; Serena Yeung-Levy; Jeffrey K. Jopling',
+        meta: 'Journal Article · Surgical Endoscopy · Published online September 28, 2026 · DOI 10.1007/s00464-026-13373-5',
+        summary: 'Reports a multi-institutional Delphi process that develops consensus operational definitions of surgical meta-competencies intended to support computer-vision-driven performance assessment.',
+        hasSummary: true, hasFull: true,
+        related: [{ kind: 'Related model', name: 'Meta-Competencies', href: OR + '#model-meta' }],
+        links: [link('Paper', 'https://link.springer.com/article/10.1007/s00464-026-13373-5'), link('Code'), link('Project'), link('Dataset')] },
+      { topic: 'Models / Surgical video understanding', cat: 'Models', status: 'Published', statusColor: '#1A2744', titleColor: '#1A2744',
+        title: 'Computer vision-based retrieval of steps and intraoperative adverse events in laparoscopic cholecystectomy',
+        authors: 'Elaine Sui, Charlotte Egeland, et al.',
+        fullAuthors: 'Elaine Sui; Charlotte Egeland; Xiaohan Wang; Alfred Song; Rui Li; Joshua Villarreal; Anita Rau; Josiah Aklilu; Alan Brown; Shelly Goel; Brian Sutjiadi; Roger Bohn; Eric Sorenson; Vanessa Palter; Teodor Grantcharov; Jeffrey Jopling; Serena Yeung-Levy',
+        meta: 'Journal Article · npj Digital Surgery · Volume 1, Article 12 · Published July 6, 2026',
+        summary: 'Develops computer-vision models for navigating full-length laparoscopic cholecystectomy videos by identifying surgical steps and retrieving intraoperative adverse events, including bleeding, bile spillage, and thermal injury.',
+        hasSummary: true, hasFull: true,
+        related: [{ kind: 'Related models', name: 'Steps', href: OR + '#model-steps' }, { kind: 'Related models', name: 'Intraoperative Adverse Events', href: OR + '#model-errors' }],
+        links: [link('Paper', 'https://www.nature.com/articles/s44484-026-00010-w'), link('Code'), link('Project'), link('Dataset')] },
+      { topic: 'Assessment / Meta-competencies', cat: 'Assessment', status: 'Preprint · Not peer reviewed', statusColor: '#6B7385', titleColor: '#1A2744',
+        title: 'Automated Video-Based Analysis of Surgical Meta-competencies Using Computer Vision',
+        authors: 'Josiah Aklilu, Joshua A. Villarreal, et al.',
+        fullAuthors: 'Josiah Aklilu; Joshua A. Villarreal; Chloe K. Nobuhara; Charlotte Egeland; Xiaohan Wang; Elaine Sui; Alan Brown; Matthew Leipzig; Reid Dale; Anita Rau; Alfred Song; Shelly Goel; Eric Sorenson; Vanessa Palter; Roger Bohn; Teodor Grantcharov; Jeffrey K. Jopling; Serena Yeung-Levy',
+        meta: 'Preprint · medRxiv · Posted November 27, 2025 · DOI 10.1101/2025.11.24.25340912',
+        summary: 'Evaluates a vision-based deep-learning approach for assessing surgical performance across meta-competency domains including tissue handling, psychomotor skills, efficiency, dissection quality, and exposure quality in laparoscopic cholecystectomy video.',
+        hasSummary: true, hasFull: true,
+        related: [{ kind: 'Related model', name: 'Meta-Competencies', href: OR + '#model-meta' }],
+        links: [link('Paper', 'https://www.medrxiv.org/content/10.1101/2025.11.24.25340912v1'), link('PDF', 'https://www.medrxiv.org/content/10.1101/2025.11.24.25340912v1.full.pdf'), link('Code'), link('Project'), link('Dataset')] },
+      { topic: 'Models / Disease Severity', cat: 'Models', status: 'Published', statusColor: '#1A2744', titleColor: '#1A2744',
+        title: 'Using artificial intelligence to model expert panel diagnosis of cholecystitis severity',
+        authors: 'Griffin H. Olsen, Emmett D. Goodman, et al.',
+        fullAuthors: '',
+        meta: 'Journal Article · Surgical Endoscopy · Vol 39(10):6560–6568 · Published online August 18, 2025 · DOI 10.1007/s00464-025-12015-6',
+        summary: 'Develops and evaluates AI models for predicting cholecystitis severity using the Parkland Grading Scale and expert-panel consensus.',
+        hasSummary: true, hasFull: false,
+        related: [{ kind: 'Related model', name: 'Disease Severity', href: OR + '#model-severity' }],
+        links: [link('Paper', 'https://pubmed.ncbi.nlm.nih.gov/40825893/'), link('Code'), link('Project'), link('Dataset')] },
+      placeholder('SurgVision+500 dataset paper', 'Datasets', [{ kind: 'Related dataset', name: 'SurgVision+500', href: OR + '#datasets' }]),
+      placeholder('Tool tracking', 'Models', [{ kind: 'Related model', name: 'Tool Tracking', href: OR + '#model-tools' }]),
+      placeholder('Additional meta-competencies work', 'Assessment', []),
+      placeholder('Surgical needs finding', 'Clinical / Needs Finding', []),
+      placeholder('SOAR web application', 'Tools', [{ kind: 'Related software', name: 'SOAR', href: OR + '#soar' }]),
+    ];
+    const cat = this.state.cat;
+    const papers = cat === 'All' ? all : all.filter(p => p.cat === cat);
+    const countFor = c => c === 'All' ? all.length : all.filter(p => p.cat === c).length;
+    return {
+      filters: ['All', 'Models', 'Datasets', 'Assessment', 'Tools', 'Clinical / Needs Finding'].map(label => {
+        const on = label === cat;
+        const n = countFor(label);
+        return { label: label + ' (' + n + ')', pressed: on ? 'true' : 'false', color: on ? '#1A2744' : '#6B7385', line: on ? '#8C1515' : 'transparent', select: () => this.setState({ cat: label }) };
+      }),
+      papers, count: papers.length, empty: papers.length === 0,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+video,tool_id,avg_velocity_px_per_s,avg_acceleration_px_per_s2,dist_from_center_px,total_frames_detected
+example_laparoscopic_cholecystectomy.mp4,1,6.8,1.2,112.4,842
+example_laparoscopic_cholecystectomy.mp4,2,7.4,1.3,134.1,811

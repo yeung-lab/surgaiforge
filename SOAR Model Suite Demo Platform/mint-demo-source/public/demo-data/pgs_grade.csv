@@ -1,0 +1,2 @@
+video,predicted_grade,p_grade_1,p_grade_2,p_grade_3,p_grade_4,p_grade_5
+example_laparoscopic_cholecystectomy.mp4,2,0.08,0.61,0.22,0.07,0.02

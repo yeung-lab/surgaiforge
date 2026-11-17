@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Open Resources | SurgAI Forge</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="assets/flame.png">
+<link rel="apple-touch-icon" href="assets/flame.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{margin:0;background:#fff;color:#1A2744;font-family:'Public Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#8C1515;text-decoration:none}
+a:hover{color:#6E1010}
+:focus-visible{outline:2px solid #8C1515;outline-offset:3px;border-radius:4px}
+a[aria-disabled="true"]{cursor:not-allowed}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (max-width:1180px){header nav[aria-label="Primary"]{gap:16px!important}header nav[aria-label="Primary"]>ul{gap:16px!important}header nav[aria-label="Primary"]>ul a{font-size:13.5px!important}header nav[aria-label="Primary"]>a:first-child span{font-size:22px!important}header nav[aria-label="Primary"]>a:first-child img{height:30px!important}}
+@media (max-width:1000px){header nav[aria-label="Primary"]{gap:12px!important;padding-left:14px!important;padding-right:14px!important}header nav[aria-label="Primary"]>ul{gap:12px!important}header nav[aria-label="Primary"]>ul a{font-size:12.5px!important}header nav[aria-label="Primary"]>a:first-child span{font-size:20px!important}header nav[aria-label="Primary"]>a:last-child{padding:7px 11px!important;font-size:13px!important}}
+</style>
+</helmet>
+<!-- PLACEHOLDER POLICY: destinations not yet confirmed use aria-disabled="true" + a title explaining why. Assets awaiting approval are marked with TODO comments. Do not invent links, metrics, repositories, paper titles, or model specs. -->
+
+<a href="#main" style="position:absolute;left:-9999px;top:8px;padding:10px 14px;background:#1A2744;color:#fff;z-index:100;border-radius:6px" style-focus="left:12px">Skip to content</a>
+
+<!-- NAV (shared) -->
+<header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-bottom:1px solid #E6E8EC">
+  <nav aria-label="Primary" style="max-width:1440px;margin:0 auto;padding:14px clamp(16px,2.5vw,32px);display:flex;flex-wrap:nowrap;align-items:center;gap:12px 24px">
+    <a href="SurgAI%20Forge%20Homepage.dc.html" aria-label="SurgAI Forge home" style="display:flex;align-items:center;gap:10px;flex:0 0 auto">
+      <img src="assets/flame.png" alt="" width="20" height="37" style="display:block;height:34px;width:auto">
+      <span style="font-family:'Source Serif 4',Georgia,serif;font-size:25px;font-weight:600;letter-spacing:-0.01em;color:#1A2744;white-space:nowrap">SurgAI <span style="color:#8C1515">Forge</span></span>
+    </a>
+    <ul style="list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:22px;flex:0 1 auto;margin-left:auto;min-width:0;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;order:2">
+      <li><a href="About%20Us.dc.html" style="color:#4A5568;font-size:14.5px;font-weight:500;padding:6px 0;display:block;white-space:nowrap" style-hover="color:#1A2744">About Us</a></li>
+      <li><a href="Open%20Resources.dc.html" aria-current="page" style="color:#1A2744;font-size:14.5px;font-weight:600;padding:6px 0;display:block;white-space:nowrap;box-shadow:inset 0 -2px 0 #8C1515">Open Resources</a></li>
+      <li><a href="For%20Surgeons.dc.html" style="color:#4A5568;font-size:14.5px;font-weight:500;padding:6px 0;display:block;white-space:nowrap" style-hover="color:#1A2744">For Surgeons</a></li>
+      <li><a href="For%20Computer%20Scientists.dc.html" style="color:#4A5568;font-size:14.5px;font-weight:500;padding:6px 0;display:block;white-space:nowrap" style-hover="color:#1A2744">For Computer Scientists</a></li>
+      <li><a href="Papers.dc.html" style="color:#4A5568;font-size:14.5px;font-weight:500;padding:6px 0;display:block;white-space:nowrap" style-hover="color:#1A2744">Papers</a></li>
+      <li><a href="Support.dc.html" style="color:#4A5568;font-size:14.5px;font-weight:500;padding:6px 0;display:block;white-space:nowrap" style-hover="color:#1A2744">Support</a></li>
+    </ul>
+    <a href="#access" style="order:3;flex:0 0 auto;white-space:nowrap;display:inline-flex;align-items:center;padding:9px 16px;border:1px solid #8C1515;border-radius:7px;color:#8C1515;font-size:14px;font-weight:600;background:#fff;transition:background .15s,color .15s" style-hover="background:#8C1515;color:#fff">Request Access</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- 1. HERO (compact) -->
+<section id="top" aria-labelledby="hero-title" style="background-color:#fff;background-image:linear-gradient(#F3F4F7 1px,transparent 1px),linear-gradient(90deg,#F3F4F7 1px,transparent 1px);background-size:72px 72px">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(48px,6vw,80px) clamp(20px,4vw,48px) clamp(40px,5vw,56px)">
+    <nav aria-label="Breadcrumb" style="margin:0 0 28px;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;display:flex;gap:10px;flex-wrap:wrap">
+      <a href="SurgAI%20Forge%20Homepage.dc.html" style="color:#6B7385" style-hover="color:#1A2744">Home</a><span aria-hidden="true" style="color:#B5BBC7">/</span><span style="color:#8C1515">Open resources</span>
+    </nav>
+    <h1 id="hero-title" style="margin:0 0 36px;font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(52px,7.5vw,96px);line-height:1.0;letter-spacing:-0.03em;color:#1A2744">Open resources for surgical AI.</h1>
+    <div style="display:flex;flex-wrap:wrap;gap:20px clamp(32px,4vw,56px);align-items:center;justify-content:space-between">
+      <p style="flex:1 1 420px;margin:0;max-width:60em;font-size:clamp(17px,1.5vw,20px);line-height:1.55;color:#3D4A63;text-wrap:pretty">Explore SurgAI Forge software, models, datasets, annotations, and benchmarking resources.</p>
+      <a href="#access" style="flex:0 0 auto;display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:8px;background:#8C1515;border:1px solid #8C1515;color:#fff;font-size:16px;font-weight:600;transition:background .15s" style-hover="background:#741111;color:#fff">Request Access <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. CATEGORY NAVIGATION -->
+<nav aria-label="Resource categories" style="border-top:1px solid #E6E8EC;border-bottom:1px solid #E6E8EC;background:#fff">
+  <ul style="list-style:none;margin:0 auto;max-width:1240px;padding:0 clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))">
+    <sc-for list="{{ cats }}" as="c" hint-placeholder-count="4">
+      <li><a href="{{ c.href }}" style="display:flex;align-items:baseline;gap:10px;padding:18px 16px 18px 0;color:#1A2744;font-size:16px;font-weight:600;transition:color .15s" style-hover="color:#8C1515"><span style="font-family:'Source Serif 4',Georgia,serif;font-size:14px;color:#8C1515;font-variant-numeric:tabular-nums">{{ c.n }}</span>{{ c.label }}</a></li>
+    </sc-for>
+  </ul>
+</nav>
+
+<!-- 3. MODELS & ANNOTATIONS -->
+<section id="models" aria-labelledby="models-title" style="padding:clamp(64px,8vw,104px) 0;background:#F7F8FA;border-top:1px solid #E6E8EC;border-bottom:1px solid #E6E8EC">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)">
+    <p style="margin:0 0 18px;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#8C1515">Models &amp; Annotations</p>
+    <h2 id="models-title" style="margin:0 0 12px;font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(34px,4.2vw,52px);line-height:1.1;letter-spacing:-0.015em;color:#1A2744">Model suite</h2>
+    <p style="margin:0;font-size:15px;line-height:1.55;color:#6B7385">Our current model suite is centered primarily on laparoscopic cholecystectomy, with the infrastructure designed to support additional procedures over time.</p>
+    <div role="table" aria-label="Model suite" style="margin-top:clamp(32px,4vw,48px);border:1px solid #DCE0E6;border-radius:12px;background:#fff;overflow:hidden">
+      <div role="row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:8px 24px;padding:14px 24px;border-bottom:1px solid #DCE0E6;background:#FAFAFB;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#6B7385">
+        <span role="columnheader">Model</span><span role="columnheader">Description</span><span role="columnheader">Output</span><span role="columnheader">Annotations</span><span role="columnheader">Resources</span>
+      </div>
+      <sc-for list="{{ models }}" as="md" hint-placeholder-count="6">
+        <div role="row" id="{{ md.anchor }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:8px 24px;padding:20px 24px;border-bottom:1px solid #EEF0F3;align-items:center">
+          <span role="cell" style="font-family:'Source Serif 4',Georgia,serif;font-size:21px;font-weight:600;color:#1A2744">{{ md.name }}</span>
+          <span role="cell" style="font-size:15px;line-height:1.5;color:#4A5568">{{ md.desc }}</span>
+          <span role="cell" style="font-size:15px;line-height:1.5;color:#1A2744">{{ md.output }}</span>
+          <span role="cell" style="font-size:15px;line-height:1.5;color:#4A5568">{{ md.annotation }}</span>
+          <span role="cell" style="display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;font-weight:600">
+            <a href="For%20Surgeons.dc.html#demos" style="color:#8C1515;border-bottom:1px solid #E9C9C9;padding-bottom:1px" style-hover="color:#6E1010;border-color:#8C1515">View Demo</a>
+            <a href="For%20Computer%20Scientists.dc.html#models" style="color:#1A2744;border-bottom:1px solid #CBD0D9;padding-bottom:1px" style-hover="color:#1A2744;border-color:#1A2744">Model Details</a>
+            <a href="#access" style="color:#1A2744;border-bottom:1px solid #CBD0D9;padding-bottom:1px" style-hover="color:#1A2744;border-color:#1A2744">Request Access</a>
+          </span>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin:14px 0 0;font-size:13px;color:#6B7385">Metrics, specifications, weights, and papers will be published with each release.</p>
+  </div>
+</section>
+
+<!-- 4. DATASETS -->
+<section id="datasets" aria-labelledby="data-title" style="padding:clamp(64px,8vw,104px) 0">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)">
+    <p style="margin:0 0 18px;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#8C1515">Datasets</p>
+    <h2 id="data-title" style="margin:0;font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(34px,4.2vw,52px);line-height:1.1;letter-spacing:-0.015em;color:#1A2744">Surgical video datasets</h2>
+    <div style="margin-top:clamp(32px,4vw,48px);display:flex;flex-wrap:wrap;gap:20px">
+      <article style="flex:2 1 560px;min-width:0;border:1px solid #DCE0E6;border-radius:12px;background:#fff;padding:clamp(28px,3.5vw,44px);display:flex;flex-direction:column">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:16px">
+          <div>
+            <p style="margin:0 0 8px;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#6B7385">Flagship dataset</p>
+            <h3 style="margin:0;font-family:'Source Serif 4',Georgia,serif;font-size:30px;font-weight:600;color:#1A2744">SurgVision+500</h3>
+          </div>
+          <div style="display:flex;align-items:center;gap:20px">
+            <img src="assets/logo-stanford.png" alt="Stanford University" style="height:32px;width:auto;display:block;mix-blend-mode:multiply">
+            <img src="assets/logo-intermountain.png" alt="Intermountain Health" style="height:32px;width:auto;display:block;mix-blend-mode:multiply">
+          </div>
+        </div>
+        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;color:#1A2744">500+ <strong>full-length</strong> laparoscopic procedures for surgical AI research.</p>
+        <p style="margin:0 0 20px;font-size:14px;line-height:1.55;color:#6B7385">To our knowledge, SurgVision+500 is the largest collection of full-length laparoscopic surgical video assembled to date, including the largest full-length laparoscopic appendectomy video collection.</p>
+        <dl style="margin:0 0 28px;border-top:1px solid #DCE0E6">
+          <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px;padding:12px 0;border-bottom:1px solid #DCE0E6;font-size:15px"><dt style="color:#6B7385">Procedures</dt><dd style="margin:0;color:#1A2744">Cholecystectomy, appendectomy</dd></div>
+          <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px;padding:12px 0;border-bottom:1px solid #DCE0E6;font-size:15px"><dt style="color:#6B7385">Size</dt><dd style="margin:0;color:#1A2744">500+ procedures <span style="color:#8A93A6">· final count TBD</span></dd></div>
+          <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px;padding:12px 0;border-bottom:1px solid #DCE0E6;font-size:15px">
+            <dt style="color:#6B7385">Annotations</dt>
+            <dd style="margin:0;color:#1A2744">
+              <div style="display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px">
+                <span style="padding:3px 10px;border:1px solid #DCE0E6;border-radius:999px;font-size:13px;font-weight:600;color:#4A5568;background:#FAFAFB">Steps</span>
+                <span style="padding:3px 10px;border:1px solid #DCE0E6;border-radius:999px;font-size:13px;font-weight:600;color:#4A5568;background:#FAFAFB">Adverse Events</span>
+                <span style="padding:3px 10px;border:1px solid #DCE0E6;border-radius:999px;font-size:13px;font-weight:600;color:#4A5568;background:#FAFAFB">Tool Tracking</span>
+                <span style="padding:3px 10px;border:1px solid #DCE0E6;border-radius:999px;font-size:13px;font-weight:600;color:#4A5568;background:#FAFAFB">Meta-Competencies</span>
+                <span style="padding:3px 10px;border:1px solid #DCE0E6;border-radius:999px;font-size:13px;font-weight:600;color:#4A5568;background:#FAFAFB">Disease Severity</span>
+              </div>
+              <a href="#models" style="font-size:13px;font-weight:600;color:#6B7385;border-bottom:1px solid #DCE0E6;padding-bottom:1px" style-hover="color:#8C1515;border-color:#8C1515">View related models →</a>
+            </dd>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px;padding:12px 0;border-bottom:1px solid #DCE0E6;font-size:15px"><dt style="color:#6B7385">Access</dt><dd style="margin:0;color:#1A2744">Request-based</dd></div>
+        </dl>
+        <div><a href="https://intermountainhealthcare.org/redcapsurveys/surveys/?s=HXTLEDFN4YC4RYYC" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:8px;background:#8C1515;border:1px solid #8C1515;color:#fff;font-size:15px;font-weight:600;transition:background .15s" style-hover="background:#741111;color:#fff">Request Dataset Access <span aria-hidden="true">→</span></a></div>
+      </article>
+      <article style="flex:1 1 280px;min-width:0;border:1px dashed #CBD0D9;border-radius:12px;padding:clamp(28px,3.5vw,44px);display:flex;flex-direction:column;gap:12px">
+        <p style="margin:0;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#8A93A6">More datasets</p>
+        <h3 style="margin:0;font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:600;color:#1A2744">Additional SurgAI Forge datasets</h3>
+        <p style="margin:0;font-size:15px;line-height:1.55;color:#4A5568">Additional surgical-video datasets may be available through the SurgAI Forge access process.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 5. SOFTWARE -->
+<section id="software" aria-labelledby="sw-title" style="padding:clamp(64px,8vw,104px) 0;background:#F7F8FA;border-top:1px solid #E6E8EC;border-bottom:1px solid #E6E8EC">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)">
+    <p style="margin:0 0 18px;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#8C1515">Software</p>
+    <h2 id="sw-title" style="margin:0 0 12px;font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(34px,4.2vw,52px);line-height:1.1;letter-spacing:-0.015em;color:#1A2744">Desktop tools for surgical video.</h2>
+    <p style="margin:0;font-size:15px;line-height:1.55;color:#6B7385">SurgAI Forge includes two downloadable applications that let you work with surgical AI models on your own computer.</p>
+
+    <!-- SOAR -->
+    <article id="soar" style="margin-top:clamp(40px,5vw,64px);padding:clamp(28px,3.5vw,44px);border:1px solid #DCE0E6;border-radius:14px;background:#fff">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:36px clamp(32px,4vw,56px);align-items:center">
+        <div>
+          <p style="margin:0 0 18px;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#8C1515">Use existing models</p>
+          <div style="display:inline-block;margin-bottom:14px">
+            <img src="assets/SOAR_logo_white.png" alt="SOAR" style="display:block;height:clamp(72px,9vw,108px);width:auto;mix-blend-mode:multiply">
+          </div>
+          <p style="margin:0 0 18px;font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:clamp(18px,1.6vw,22px);line-height:1.3;letter-spacing:-0.005em;color:#4A5568"><span style="color:#8C1515">S</span>urgical <span style="color:#8C1515">O</span>bjective <span style="color:#8C1515">A</span>nalysis and <span style="color:#8C1515">R</span>eview</p>
+          <p style="margin:0 0 24px;font-size:15.5px;line-height:1.6;color:#5A6478;text-wrap:pretty">A desktop application for reviewing surgical video alongside AI-generated outputs. Individual surgeons can build and revisit their own video libraries, while institutions can create shared libraries for teaching, review, and collaboration.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <a href="#access" style="display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:8px;background:#8C1515;border:1px solid #8C1515;color:#fff;font-size:15px;font-weight:600;transition:background .15s" style-hover="background:#741111;color:#fff">Get Access <span aria-hidden="true">→</span></a>
+            <a href="For%20Surgeons.dc.html#demos" style="display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:8px;background:#fff;border:1px solid #1A2744;color:#1A2744;font-size:15px;font-weight:600;transition:background .15s,color .15s" style-hover="background:#1A2744;color:#fff">Demo it <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <figure style="margin:0">
+          <img src="assets/SOAR_visual.png" alt="SOAR application — video library and model output review" style="display:block;width:100%;border-radius:12px;box-shadow:0 24px 60px rgba(26,39,68,0.10);border:1px solid #DCE0E6">
+          <figcaption style="margin-top:14px;display:inline-flex;gap:10px;align-items:flex-start;padding:10px 14px;border:1px solid #DCE0E6;border-radius:8px;font-size:14px;line-height:1.45;color:#3D4A63;background:#F7F8FA"><strong style="font-weight:600;color:#1A2744">Runs on your computer.</strong> SOAR is downloaded and installed locally. Institutional deployments can support shared access among approved members.</figcaption>
+        </figure>
+      </div>
+      <p style="margin:clamp(40px,5vw,56px) 0 16px;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#6B7385">How SOAR works</p>
+      <ol aria-label="How SOAR works" style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));border:1px solid #DCE0E6;border-radius:14px;background:#fff;overflow:hidden">
+        <sc-for list="{{ soarSteps }}" as="s" hint-placeholder-count="4">
+          <li style="padding:26px 24px 28px;border-right:1px solid #E6E8EC;border-bottom:1px solid #E6E8EC;margin-right:-1px;margin-bottom:-1px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+              <span style="width:30px;height:30px;border-radius:50%;border:1.5px solid #1A2744;background:{{ s.fill }};color:{{ s.numColor }};display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex:0 0 auto">{{ s.n }}</span>
+              <span aria-hidden="true" style="flex:1;height:1px;background:#DCE0E6"></span>
+              <span aria-hidden="true" style="color:#1A2744;font-size:16px;line-height:1">{{ s.arrow }}</span>
+            </div>
+            <h3 style="margin:0 0 8px;font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:600;color:#1A2744">{{ s.title }}</h3>
+            <p style="margin:0;font-size:15px;line-height:1.55;color:#4A5568">{{ s.body }}</p>
+          </li>
+        </sc-for>
+      </ol>
+    </article>
+
+    <!-- MINT -->
+    <article id="mint" style="margin-top:clamp(28px,3.5vw,40px);padding:clamp(28px,3.5vw,44px);border:1px solid #DCE0E6;border-radius:14px;background:#fff">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:36px clamp(32px,4vw,56px);align-items:center">
+        <div>
+          <p style="margin:0 0 18px;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#8C1515">Adapt and build</p>
+          <div style="display:inline-block;margin-bottom:14px">
+            <img src="assets/MINT_Logo.png" alt="MINT" style="display:block;height:clamp(72px,9vw,108px);width:auto;mix-blend-mode:multiply">
+          </div>
+          <p style="margin:0 0 18px;font-family:'Source Serif 4',Georgia,serif;font-weight:500;font-size:clamp(18px,1.6vw,22px);line-height:1.3;letter-spacing:-0.005em;color:#4A5568"><span style="color:#3DC194">M</span>odel <span style="color:#3DC194">I</span>nference and <span style="color:#3DC194">N</span>o-Code <span style="color:#3DC194">T</span>raining</p>
+          <p style="margin:0 0 20px;font-size:15.5px;line-height:1.6;color:#5A6478;text-wrap:pretty">A no-code desktop tool for running models on your videos and training basic models of your own, without writing code.</p>
+          <dl style="margin:0 0 20px;display:grid;gap:0;border-top:1px solid #DCE0E6">
+            <div style="display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,2fr);gap:16px;padding:14px 0;border-bottom:1px solid #DCE0E6">
+              <dt style="font-size:15px;font-weight:600;color:#1A2744">Run a model</dt>
+              <dd style="margin:0;font-size:15px;line-height:1.5;color:#4A5568">Apply an existing model to your video to get its output. Technically called <em>inference</em>.</dd>
+            </div>
+            <div style="display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,2fr);gap:16px;padding:14px 0;border-bottom:1px solid #DCE0E6">
+              <dt style="font-size:15px;font-weight:600;color:#1A2744">Train a model</dt>
+              <dd style="margin:0;font-size:15px;line-height:1.5;color:#4A5568">Teach a model a task from examples you provide, or adapt an existing one to your cases.</dd>
+            </div>
+          </dl>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">
+            <a href="#access" style="display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:8px;background:#8C1515;border:1px solid #8C1515;color:#fff;font-size:15px;font-weight:600;transition:background .15s" style-hover="background:#741111;color:#fff">Get Access <span aria-hidden="true">→</span></a>
+            <a href="mint-demo/" style="display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:8px;background:#fff;border:1px solid #1A2744;color:#1A2744;font-size:15px;font-weight:600;transition:background .15s,color .15s" style-hover="background:#1A2744;color:#fff">Demo it <span aria-hidden="true">→</span></a>
+            <a aria-disabled="true" title="How-to Guide not yet available" style="display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border:1px solid #E6E8EC;border-radius:8px;background:#F7F8FA;color:#6B7385;font-size:14px;font-weight:600;cursor:not-allowed">Download How-to Guide <span aria-hidden="true" style="font-size:12px;font-weight:500;color:#A0A7B6">· Coming soon</span></a>
+          </div>
+        </div>
+        <figure style="margin:0">
+          <img src="assets/MINT_visual_2.png" alt="MINT application — no-code model training and inference" style="display:block;width:100%;border-radius:12px;box-shadow:0 24px 60px rgba(26,39,68,0.10);border:1px solid #DCE0E6">
+          <figcaption style="margin-top:14px;display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border:1px solid #DCE0E6;border-radius:8px;font-size:14px;line-height:1.45;color:#3D4A63;background:#F7F8FA"><strong style="font-weight:600;color:#1A2744">No account required.</strong> MINT is downloaded and runs locally.</figcaption>
+        </figure>
+      </div>
+      <p style="margin:clamp(40px,5vw,56px) 0 16px;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#6B7385">How MINT works</p>
+      <ol aria-label="How MINT works" style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));border:1px solid #DCE0E6;border-radius:14px;background:#fff;overflow:hidden">
+        <sc-for list="{{ mintSteps }}" as="s" hint-placeholder-count="4">
+          <li style="padding:26px 24px 28px;border-right:1px solid #E6E8EC;border-bottom:1px solid #E6E8EC;margin-right:-1px;margin-bottom:-1px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+              <span style="width:30px;height:30px;border-radius:50%;border:1.5px solid #1A2744;background:{{ s.fill }};color:{{ s.numColor }};display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex:0 0 auto">{{ s.n }}</span>
+              <span aria-hidden="true" style="flex:1;height:1px;background:#DCE0E6"></span>
+              <span aria-hidden="true" style="color:#1A2744;font-size:16px;line-height:1">{{ s.arrow }}</span>
+            </div>
+            <h3 style="margin:0 0 8px;font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:600;color:#1A2744">{{ s.title }}</h3>
+            <p style="margin:0;font-size:15px;line-height:1.55;color:#4A5568">{{ s.body }}</p>
+          </li>
+        </sc-for>
+      </ol>
+    </article>
+  </div>
+</section>
+
+<!-- 6. BENCHMARKS & LEADERBOARD -->
+<section id="benchmarks" aria-labelledby="bench-title" style="padding:clamp(64px,8vw,104px) 0">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+      <div style="flex:1 1 560px">
+        <p style="margin:0 0 18px;font-size:13px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#8C1515">Benchmarks &amp; leaderboard</p>
+        <h2 id="bench-title" style="margin:0 0 16px;font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(34px,4.2vw,52px);line-height:1.1;letter-spacing:-0.015em;color:#1A2744">Evaluate against shared benchmarks.</h2>
+        <p style="margin:0;font-size:18px;line-height:1.6;color:#4A5568;text-wrap:pretty">Evaluate models on standardized benchmarks and submit results to the SurgAI Forge leaderboard hosted on Hugging Face.</p>
+      </div>
+      <a href="https://huggingface.co/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:8px;background:#8C1515;color:#fff;font-size:15px;font-weight:600">View Leaderboard <span aria-hidden="true">→</span></a>
+    </div>
+    <ol aria-label="Benchmark workflow" style="list-style:none;margin:clamp(40px,5vw,56px) 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));border:1px solid #DCE0E6;border-radius:14px;background:#fff;overflow:hidden">
+      <sc-for list="{{ bench }}" as="s" hint-placeholder-count="4">
+        <li style="padding:24px 24px 26px;border-right:1px solid #E6E8EC;border-bottom:1px solid #E6E8EC;margin-right:-1px;margin-bottom:-1px">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+            <span style="width:30px;height:30px;border-radius:50%;border:1.5px solid #8C1515;background:{{ s.fill }};color:{{ s.numColor }};display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex:0 0 auto">{{ s.n }}</span>
+            <span aria-hidden="true" style="flex:1;height:1px;background:#DCE0E6"></span>
+            <span aria-hidden="true" style="color:#8C1515;font-size:16px;line-height:1">{{ s.arrow }}</span>
+          </div>
+          <h3 style="margin:0 0 6px;font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:600;color:#1A2744">{{ s.title }}</h3>
+          <p style="margin:0;font-size:15px;line-height:1.5;color:#4A5568">{{ s.body }}</p>
+        </li>
+      </sc-for>
+    </ol>
+  </div>
+</section>
+
+<!-- 7. ACCESS -->
+<section id="access" aria-labelledby="cta-title" style="padding:0 0 clamp(72px,9vw,120px)">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)">
+    <div style="padding:clamp(40px,6vw,72px);border-radius:16px;background:#1A2744;color:#fff;display:grid;gap:28px">
+      <div>
+        <img src="assets/flame.png" alt="" style="height:36px;width:auto;display:block;margin-bottom:28px;filter:brightness(0) invert(1);opacity:0.9">
+        <h2 id="cta-title" style="margin:0 0 16px;font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(32px,4vw,48px);line-height:1.1;letter-spacing:-0.015em;color:#fff">Access the SurgAI Forge resource suite.</h2>
+        <p style="margin:0;font-size:18px;line-height:1.6;color:#C9CFDB">SurgAI Forge currently uses a request-based access process for applicable downloadable resources.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <!-- TODO: Link to access request form -->
+        <a href="https://forms.gle/ZodL3Gbr647xhC8F6" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:8px;background:#8C1515;color:#fff;font-size:16px;font-weight:600;border:1px solid #8C1515;transition:background .15s" style-hover="background:#741111;color:#fff">Request Access <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER (shared) -->
+<footer style="border-top:1px solid #E6E8EC;background:#fff">
+  <div style="max-width:1240px;margin:0 auto;padding:56px clamp(20px,4vw,48px) 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:40px">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="assets/flame.png" alt="" style="height:30px;width:auto;display:block">
+        <span style="font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:600;color:#1A2744">SurgAI <span style="color:#8C1515">Forge</span></span>
+      </div>
+      <p style="margin:16px 0 0;font-size:15px;line-height:1.6;color:#5A6478;max-width:22em">A global, open program for surgical AI.</p>
+    </div>
+    <nav aria-label="Footer" style="grid-column:span 2;min-width:0">
+      <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px 24px">
+        <li><a href="About%20Us.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">About Us</a></li>
+        <li><a href="Open%20Resources.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Open Resources</a></li>
+        <li><a href="For%20Surgeons.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Surgeons</a></li>
+        <li><a href="For%20Computer%20Scientists.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Computer Scientists</a></li>
+        <li><a href="Papers.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Papers</a></li>
+        <li><a href="Support.dc.html" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Support</a></li>
+        <li><a href="mailto:surgaiforge@gmail.com" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Contact</a></li>
+        <li><a href="SurgAI%20Forge%20Homepage.dc.html#updates" style="font-size:15px;color:#3D4A63" style-hover="color:#8C1515">Join the mailing list →</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:20px clamp(20px,4vw,48px) 32px;border-top:1px solid #EEF0F3;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px;color:#6B7385">
+    <span>© SurgAI Forge</span>
+    <span style="display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center">
+      <a href="Privacy.dc.html" style="color:#6B7385" style-hover="color:#8C1515">Privacy Policy</a>
+      <a href="Terms.dc.html" style="color:#6B7385" style-hover="color:#8C1515">Terms &amp; Conditions</a>
+      <a href="mailto:surgaiforge@gmail.com" style="color:#6B7385" style-hover="color:#8C1515">surgaiforge@gmail.com</a>
+    </span>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const flowList = (arr) => arr.map((s, i, a) => ({ ...s, n: i + 1, arrow: i < a.length - 1 ? '→' : '', fill: i === a.length - 1 ? '#1A2744' : '#fff', numColor: i === a.length - 1 ? '#fff' : '#1A2744' }));
+    const models = [
+      { key: 'steps', name: 'Steps', desc: 'Recognizes the surgical step occurring throughout a procedure.', output: 'Step label over time', annotation: 'Procedure phases and step boundaries.' },
+      { key: 'errors', name: 'Adverse Events', desc: 'Flags intraoperative moments that may contain an adverse event.', output: 'Timestamps for review', annotation: 'Intraoperative adverse events.' },
+      { key: 'tools', name: 'Tool Tracking', desc: 'Detects and follows surgical instruments across the video.', output: 'Instrument locations over time', annotation: 'Instrument presence and location.' },
+      { key: 'meta', name: 'Meta-Competencies', desc: 'Estimates ratings for broad surgical skills.', output: 'Skill scores', annotation: 'Expert ratings of broad surgical skills.' },
+      { key: 'severity', name: 'Disease Severity', desc: 'Estimates disease severity from operative video.', output: 'Severity grade', annotation: 'Graded severity of the presenting disease.' },
+      { key: 'cvs', name: 'Critical View of Safety', desc: 'Assesses whether the critical view of safety has been achieved.', output: 'CVS criteria status', annotation: '—' },
+    ].map(m => ({ ...m, anchor: 'model-' + m.key }));
+    return {
+      cats: [
+        { label: 'Models & Annotations', n: '01', href: '#models' },
+        { label: 'Datasets',              n: '02', href: '#datasets' },
+        { label: 'Software',              n: '03', href: '#software' },
+        { label: 'Benchmarks',            n: '04', href: '#benchmarks' },
+      ],
+      soarSteps: flowList([
+        { title: 'Download', body: 'Install SOAR on your own computer or through your institution.' },
+        { title: 'Add videos', body: 'Add surgical videos to your personal or institutional library.' },
+        { title: 'Review outputs', body: 'Navigate the case and inspect AI-generated steps, events, and other model outputs alongside the video.' },
+        { title: 'Save and share', body: 'Return to cases for later review, or share videos within your institution for teaching, feedback, and collaboration.' },
+      ]),
+      mintSteps: flowList([
+        { title: 'Add videos', body: 'Upload your surgical videos.' },
+        { title: 'Select a task', body: 'Choose what you want a model to recognize or measure.' },
+        { title: 'Run or train', body: 'Apply an existing model, or teach one from your labeled examples.' },
+        { title: 'Review results', body: 'See what the model found before you rely on it.' },
+      ]),
+      models,
+      bench: [
+        { title: 'Build', body: 'Develop or extend a model.' },
+        { title: 'Evaluate', body: 'Run the standardized benchmark.' },
+        { title: 'Submit', body: 'Submit results on Hugging Face.' },
+        { title: 'Compare', body: 'See how your model ranks.' },
+      ].map((s, i, a) => ({ ...s, n: i + 1, arrow: i < a.length - 1 ? '→' : '', fill: i === a.length - 1 ? '#8C1515' : '#fff', numColor: i === a.length - 1 ? '#fff' : '#8C1515' })),
+    };
+  }
+}
+</script>
+<script>
+(function(){
+  function scrollToHash(){
+    var hash = window.location.hash;
+    if(!hash) return;
+    var el = document.querySelector(hash);
+    if(el) el.scrollIntoView({behavior:'auto',block:'start'});
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', function(){ setTimeout(scrollToHash, 80); });
+  } else {
+    setTimeout(scrollToHash, 80);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+{
+    "cvs_time_range": {
+        "start": "00:08:28",
+        "end": "01:02:12",
+        "start_seconds": 508.0,
+        "end_seconds": 3732.0
+    },
+    "criteria": {
+        "c1_cystic_duct_artery_isolation": {
+            "achieved": true,
+            "segments": [
+                {
+                    "start": "00:08:28",
+                    "end": "00:08:29",
+                    "start_seconds": 508.0,
+                    "end_seconds": 509.0
+                },
+                {
+                    "start": "00:08:30",
+                    "end": "00:08:31",
+                    "start_seconds": 510.0,
+                    "end_seconds": 511.0
+                }
+            ]
+        },
+        "c2_hepatocystic_triangle_clearance": {
+            "achieved": true,
+            "segments": [
+                {
+                    "start": "00:08:28",
+                    "end": "00:08:30",
+                    "start_seconds": 508.0,
+                    "end_seconds": 510.0
+                },
+                {
+                    "start": "00:08:46",
+                    "end": "00:08:47",
+                    "start_seconds": 526.0,
+                    "end_seconds": 527.0
+                },
+                {
+                    "start": "00:30:48",
+                    "end": "00:30:49",
+                    "start_seconds": 1848.0,
+                    "end_seconds": 1849.0
+                },
+                {
+                    "start": "00:34:19",
+                    "end": "00:34:20",
+                    "start_seconds": 2059.0,
+                    "end_seconds": 2060.0
+                }
+            ]
+        },
+        "c3_cystic_plate_exposure": {
+            "achieved": true,
+            "segments": [
+                {
+                    "start": "00:10:41",
+                    "end": "00:10:42",
+                    "start_seconds": 641.0,
+                    "end_seconds": 642.0
+                },
+                {
+                    "start": "01:02:11",
+                    "end": "01:02:12",
+                    "start_seconds": 3731.0,
+                    "end_seconds": 3732.0
+                }
+            ]
+        }
+    }
+}
